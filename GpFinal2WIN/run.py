@@ -1,8 +1,6 @@
 from trainGP import train_gp
 from data import Data
-import sys
-
-import numpy
+import timeit
 
 
 def gp_full_data(test_dataset):
@@ -14,16 +12,22 @@ def gp_full_data(test_dataset):
 def run_gp(data_set, thresh=0.5):
     import math
     accs = list()
+    timer = list()
+    start_time = timeit.default_timer()
 
     for i in range(10):
+        elapse = timeit.default_timer() - start_time
+        timer.append(elapse)
         optimal_expression = train_gp(data_set=data_set, gen_depth=4,
-                                      population_size=5, max_iteration=1000, selection_type="tournament",
-                                      tournament_size=3, cross_over_rate=0.5, mutation_rate=0.99, thresh=thresh)
+                                      population_size=100, max_iteration=1000, selection_type="tournament",
+                                      tournament_size=40, cross_over_rate=0.5, mutation_rate=0.99, thresh=thresh)
 
-        # opt_exp = optimal_expression[0]
-        opt_exp ="(X2/(31.027252956956403*(31.027252956956403*((X2*X4)*18.420794911945393))))-((X2*X5)*(33.12824161343723/X4))"
+        opt_exp = optimal_expression[0]
         row = optimal_expression[1]
         label = optimal_expression[2]
+        print("training times")
+        training_time = optimal_expression[4]
+        print(training_time)
 
         exp = list()
         exp.append(opt_exp)
@@ -35,10 +39,9 @@ def run_gp(data_set, thresh=0.5):
 
                 new_exp = i.replace("X1", str(j[0])).replace("X2", str(j[1])).replace("X3", str(j[2])) \
                     .replace("X4", str(j[3])).replace("X5", str(j[4]))
-                # print(new_exp)
                 try:
                     eva = eval(new_exp)
-                except:
+                except ZeroDivisionError:
                     eva = 0
                 if eva >= 0:
                     x = eva
@@ -80,12 +83,15 @@ def run_gp(data_set, thresh=0.5):
     # print("accs")
     # print(accs)
 
-    save_file = open("./Tsel.txt", 'a')
+    save_file = open("./out.txt", 'a')
     for i in accs:
         save_file.write(str(i))
         save_file.write(", ")
+
     save_file.write("\n")
     save_file.close()
+    print("time taken over n runs")
+    print(timer)
 
 
 if __name__ == "__main__":

@@ -4,9 +4,10 @@ import math
 from random import random
 from convertToInfix import ToInfixParser
 from convertToPrefix import ToPrefixParser
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from data import Data
 import copy
+import timeit
 
 
 def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iteration=2,
@@ -15,7 +16,6 @@ def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iter
     Function to train the genetic program using the training dataset, based on user defined parameters.
     :param data_set: data set to be read into the program
     :param gen_depth: depth of the original population
-    :param max_depth: max depth of a tree
     :param population_size: maximum popululation size
     :param max_iteration: stopping criteria if no solution is found within a reasonable iteration limit
     :param cross_over_rate: frequency of crossover expressed as a value between [0,1]
@@ -26,8 +26,8 @@ def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iter
     :return: optimal expression found through training.
     """
     import sys
-    import time
-    start = time.time()
+    start_time = timeit.default_timer()
+    timer = list()
     loop_break = False
     to_pref = ToPrefixParser()
     tree = Tree()
@@ -93,14 +93,15 @@ def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iter
     x = 1
 
     while x <= max_iteration:
-        #     # print()
-        # print("population!: ", population)
-        #     print()
+        elapse = timeit.default_timer() - start_time
+        timer.append(elapse)
+        # print("elapsed time: ", elapse)
+
         if x == 1:
             population_fitness = current_population.get_fitness(population, x_train, y_train)
 
         for index in range(len(population_fitness)):
-            if population_fitness[index] <= 133:
+            if population_fitness[index] <= 100:
                 print("#########################################################################")
                 print(True)
 
@@ -108,35 +109,20 @@ def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iter
                 print(" Training fitness index:", population_fitness.index(population_fitness[index]))
                 print(" Training fitness: ", population_fitness[index])
                 print()
-                # print(population)
                 print(population[index])
-                # evale = current_population.eval_expressions(population[i])
-                # print(evale)
                 loop_break = True
 
             if loop_break is True:
-                end = time.time()
-                elapsed_time = end - start
-                print("time elapsed: ", elapsed_time)
-                print("here")
-                return population[index], x_test, y_test
+                return population[index], x_test, y_test, y_val, timer
 
         if x % 10 == 0:
-            # print("parents: ", select_parents )
-
-            # print("iteration: ", x)
-            # sys.stdout.write("iteration: {} \n".format(x))
-
             x_val.append(x)
             abs_list = [abs(f) for f in population_fitness]
             min_val = min(abs_list)
-            # print("current best fitness: ", min_val)
-            # sys.stdout.write("{} \n".format(min_val))
             sys.stdout.flush()
             y_val.append(min_val)
-            # print("time elapsed: ", time.time())
-            # print("x_val: ", x_val)
-            # print("y_val: ", y_val)
+            elapse = timeit.default_timer() - start_time
+            timer.append(elapse)
 
         if x == max_iteration:
             print("max iteration met")
@@ -150,20 +136,14 @@ def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iter
             print("equation: ", population[index])
             acc = 1 - (min_val / len(x_train))
             print("acc: ", round(acc, 2) * 100, "%")
-            end = time.time()
-            elapsed_time = end - start
-
-            print("time elapsed: ", elapsed_time)
-            # print("ben was right")
-
             # plt.figure()
             # plt.plot(x_val, y_val, "b", label="fitness")
             # plt.xlabel("iteration")
             # plt.ylabel("fitness")
             # plt.legend(loc="best")
             # plt.show()
-
-            return population[index], x_test, y_test, y_val
+            # print(timer)
+            return population[index], x_test, y_test, y_val, timer
         if selection_type == 'tournament':
             select_parents = current_population.tournament_selection(population, population_fitness, tournament_size)
         elif selection_type == 'select_best':

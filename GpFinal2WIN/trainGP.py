@@ -1,5 +1,6 @@
 from tree import Tree
 from ExpressionGenerator import GenMember
+import math
 from random import random
 from convertToInfix import ToInfixParser
 from convertToPrefix import ToPrefixParser
@@ -8,8 +9,8 @@ from data import Data
 import copy
 
 
-def train_gp(data_set ='dataset2.txt', gen_depth=3, max_depth=3, population_size=500, max_iteration=2,
-             selection_type="tournament", tournament_size=50, cross_over_rate=0.9, mutation_rate=0.1, thresh =0.5):
+def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iteration=2,
+             selection_type="tournament", tournament_size=50, cross_over_rate=0.9, mutation_rate=0.1, thresh=0.5):
     """
     Function to train the genetic program using the training dataset, based on user defined parameters.
     :param data_set: data set to be read into the program
@@ -21,6 +22,7 @@ def train_gp(data_set ='dataset2.txt', gen_depth=3, max_depth=3, population_size
     :param selection_type: type of selection -> choose between tournament and select best 2 each time
     :param tournament_size: number of individuals to be selected for tournament in population
     :param mutation_rate: frequency of mutation expressed as a value between [0,1]
+    :param thresh: testing threshold value to print out the parameters being used.
     :return: optimal expression found through training.
     """
     import sys
@@ -33,11 +35,11 @@ def train_gp(data_set ='dataset2.txt', gen_depth=3, max_depth=3, population_size
     y_val = list()
 
     d = Data(data_set)
-    read= d.read_data()
+    read = d.read_data()
     data = read[0]
     labels = read[1]
 
-    tsp = d.train_test_split_ds(data,labels)
+    tsp = d.train_test_split_ds(data, labels)
     x_train = tsp[0]
     y_train = tsp[1]
     x_test = tsp[2]
@@ -56,6 +58,37 @@ def train_gp(data_set ='dataset2.txt', gen_depth=3, max_depth=3, population_size
     sys.stdout.write("################################ \n")
 
     current_population = GenMember()
+    if population_size < 3 and selection_type == "tournament":
+        sys.stderr.write("Population size smaller than 3 members \n")
+        sys.stderr.write("Population minimum size of 3.\n ")
+        population_size = 3
+        print("population size now: ", population_size)
+
+    if selection_type == "tournament" and tournament_size > population_size:
+        sys.stderr.write("Population size smaller than tournament size \n")
+        sys.stderr.write("reverting back to default.\n ")
+        tournament_size = math.ceil(population_size * 0.4)
+        print("tournament size: ", tournament_size)
+        # sys.exit()
+    if cross_over_rate < 0:
+        sys.stderr.write("Crossover rate must be between 0 and 1\n")
+        sys.stderr.write("Crossover disabled  \n")
+        cross_over_rate = 0
+    if cross_over_rate > 1:
+        sys.stderr.write("Crossover rate must be between 0 and 1\n")
+        sys.stderr.write("Crossover enabled \n")
+        cross_over_rate = 1
+
+    if mutation_rate < 0:
+        sys.stderr.write("Mutation rate must be between 0 and 1\n")
+        sys.stderr.write("Mutation disabled  \n")
+        cross_over_rate = 0
+    if mutation_rate > 1:
+        sys.stderr.write("Mutation rate must be between 0 and 1\n")
+        sys.stderr.write("Mutation enabled \n")
+        cross_over_rate = 1
+
+
     population = current_population.get_valid_expressions(gen_depth, population_size)
 
     x = 1
@@ -132,7 +165,7 @@ def train_gp(data_set ='dataset2.txt', gen_depth=3, max_depth=3, population_size
             # plt.legend(loc="best")
             # plt.show()
 
-            return population[index], x_test, y_test
+            return population[index], x_test, y_test, y_val
         if selection_type == 'tournament':
             select_parents = current_population.tournament_selection(population, population_fitness, tournament_size)
         elif selection_type == 'select_best':

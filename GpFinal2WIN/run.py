@@ -16,9 +16,9 @@ def run_gp(data_set, thresh=0.5):
     accs = list()
 
     for i in range(10):
-        optimal_expression = train_gp(data_set=data_set, gen_depth=3, max_depth=3,
-                                      population_size=500, max_iteration=5, selection_type="tournament",
-                                      tournament_size=50, cross_over_rate=0.5, mutation_rate=0.99, thresh=thresh)
+        optimal_expression = train_gp(data_set=data_set, gen_depth=4,
+                                      population_size=500, max_iteration=1000, selection_type="tournament",
+                                      tournament_size=50, cross_over_rate=0.1, mutation_rate=0.99, thresh=thresh)
 
         opt_exp = optimal_expression[0]
         row = optimal_expression[1]
@@ -54,6 +54,7 @@ def run_gp(data_set, thresh=0.5):
                     prob.append(1)
                 else:
                     prob.append(0)
+
         print("expression: ", optimal_expression)
         # print("classifications")
         # print(prob)

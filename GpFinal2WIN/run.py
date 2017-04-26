@@ -72,8 +72,8 @@ def run_gp(data_set, thresh=0.5):
     print(accs)
 
     save_file = open("./Tsel.txt", 'a')
-    save_file.write('\n')
-    save_file.write(accs)
+    for i in accs:
+        save_file.write(i)
     save_file.close()
 
 

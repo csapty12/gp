@@ -70,10 +70,6 @@ def run_gp(data_set, thresh=0.5):
         accs.append(ls)
     print("accs")
     print(accs)
-    for i in range(len(accs)):
-        sys.stdout.write(str(accs[i]))
-        if i %10 ==0:
-            sys.stdout.write("\n")
 
 
 

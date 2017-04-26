@@ -15,6 +15,7 @@ Graph shows that 0.5 has the smallest range of values, smallest IQR, smallest va
 """
 import matplotlib.pyplot as plt
 import numpy as np
+import math
 tr01 = [0.625, 0.633928571429, 0.5625, 0.607142857143, 0.616071428571, 0.571428571429, 0.464285714286, 0.553571428571, 0.508928571429, 0.625,
 0.571428571429, 0.723214285714, 0.696428571429, 0.508928571429, 0.517857142857, 0.616071428571, 0.401785714286, 0.553571428571, 0.517857142857, 0.383928571429,
 0.535714285714, 0.5, 0.553571428571, 0.571428571429, 0.5625, 0.535714285714, 0.767857142857, 0.535714285714, 0.535714285714, 0.669642857143,
@@ -79,6 +80,27 @@ m6 = np.mean(tr06)
 m7 = np.mean(tr07)
 m8 = np.mean(tr08)
 m9 = np.mean(tr09)
+
+print(m1)
+print(m2)
+print(m3)
+print(m4)
+print(m5)
+print(m6)
+print(m7)
+print(m8)
+print(m9)
+print("")
+print("variances")
+print("variance 0.5: ",np.var(tr05))
+print("st dev 0.5: ",math.sqrt(np.var(tr05)))
+print()
+var1 = np.var(tr06)
+print("varaince 0.6: ",var1)
+print("st dev 0.6: ",math.sqrt(var1))
+
+
+
 
 
 labels = np.arange(0.1,1,0.1)

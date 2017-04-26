@@ -101,7 +101,7 @@ def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iter
             population_fitness = current_population.get_fitness(population, x_train, y_train)
 
         for index in range(len(population_fitness)):
-            if population_fitness[index] <= 100:
+            if population_fitness[index] <= 120:
                 print("#########################################################################")
                 print(True)
 

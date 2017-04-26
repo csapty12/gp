@@ -35,7 +35,7 @@ def run_gp(data_set, thresh=0.5):
 
                 new_exp = i.replace("X1", str(j[0])).replace("X2", str(j[1])).replace("X3", str(j[2])) \
                     .replace("X4", str(j[3])).replace("X5", str(j[4]))
-                print(new_exp)
+                # print(new_exp)
                 try:
                     eva = eval(new_exp)
                 except:
@@ -53,7 +53,7 @@ def run_gp(data_set, thresh=0.5):
         for i in prediction:
             for j in i:
                 try:
-                    print("hereeeeeee")
+                    # print("hereeeeeee")
                     sig = 1 / (1 + math.exp(-j))
                 except OverflowError:
                     sig = 0
@@ -64,7 +64,7 @@ def run_gp(data_set, thresh=0.5):
                 else:
                     prob.append(0)
 
-        print("expression: ", optimal_expression)
+        # print("expression: ", optimal_expression)
         # print("classifications")
         # print(prob)
 
@@ -75,10 +75,10 @@ def run_gp(data_set, thresh=0.5):
         # print("true false array")
         # print(trufa)
         ls = sum(trufa) / len(trufa)
-        print("accuracy: ", ls)
+        # print("accuracy: ", ls)
         accs.append(ls)
-    print("accs")
-    print(accs)
+    # print("accs")
+    # print(accs)
 
     save_file = open("./Tsel.txt", 'a')
     for i in accs:

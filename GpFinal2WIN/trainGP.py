@@ -62,13 +62,13 @@ def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iter
         sys.stderr.write("Population size smaller than 3 members \n")
         sys.stderr.write("Population minimum size of 3.\n ")
         population_size = 3
-        print("population size now: ", population_size)
+        # print("population size now: ", population_size)
 
     if selection_type == "tournament" and tournament_size > population_size:
         sys.stderr.write("Population size smaller than tournament size \n")
         sys.stderr.write("reverting back to default.\n ")
         tournament_size = math.ceil(population_size * 0.4)
-        print("tournament size: ", tournament_size)
+        # print("tournament size: ", tournament_size)
         # sys.exit()
     if cross_over_rate < 0:
         sys.stderr.write("Crossover rate must be between 0 and 1\n")
@@ -87,7 +87,6 @@ def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iter
         sys.stderr.write("Mutation rate must be between 0 and 1\n")
         sys.stderr.write("Mutation enabled \n")
         cross_over_rate = 1
-
 
     population = current_population.get_valid_expressions(gen_depth, population_size)
 
@@ -338,10 +337,10 @@ def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iter
         population = update_population1[0]
         # print(" new population: ", population)
         population_fitness = update_population1[1]
-        print(" new population fitness:: ", population_fitness)
+        # print(" new population fitness:: ", population_fitness)
 
         x += 1
 
 
-# if __name__=="__main__":
-#     pass
+        # if __name__=="__main__":
+        #     pass

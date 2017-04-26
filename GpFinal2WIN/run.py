@@ -1,5 +1,6 @@
 from trainGP import train_gp
 from data import Data
+import sys
 
 import numpy
 
@@ -69,6 +70,11 @@ def run_gp(data_set, thresh=0.5):
         accs.append(ls)
     print("accs")
     print(accs)
+    for i in range(len(accs)):
+        sys.stdout.write(accs[i])
+        if i %10 ==0:
+            sys.stdout.write("\n")
+
 
 
 if __name__ == "__main__":

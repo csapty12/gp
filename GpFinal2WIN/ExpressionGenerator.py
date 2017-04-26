@@ -1,6 +1,7 @@
 from random import choice, random, sample
 from data import Data
 import numpy as np
+import math
 
 
 class GenMember(object):
@@ -108,7 +109,11 @@ class GenMember(object):
                 else:
                     # if the total is greater than 0 i.e. positive, append 0, else 1
                     for j in x:
-                        if j >= 0:
+                        try:
+                            sig = 1 / (1 + math.exp(-j))
+                        except OverflowError:
+                            sig = 0
+                        if sig >= 0.5:
                             tmp.append(1)
                         else:
                             tmp.append(0)

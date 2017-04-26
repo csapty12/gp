@@ -17,7 +17,7 @@ def run_gp(data_set, thresh=0.5):
 
     for i in range(2):
         optimal_expression = train_gp(data_set=data_set, gen_depth=3, max_depth=3,
-                                      population_size=500, max_iteration=5, selection_type="tournament",
+                                      population_size=500, max_iteration=1000, selection_type="tournament",
                                       tournament_size=50, cross_over_rate=0.5, mutation_rate=0.99, thresh=thresh)
 
         opt_exp = optimal_expression[0]
@@ -70,6 +70,11 @@ def run_gp(data_set, thresh=0.5):
         accs.append(ls)
     print("accs")
     print(accs)
+
+    save_file = open("./Tsel.txt", 'a')
+    save_file.write('\n')
+    save_file.write(accs)
+    save_file.close()
 
 
 

@@ -17,8 +17,8 @@ def run_gp(data_set, thresh=0.5):
 
     for i in range(10):
         optimal_expression = train_gp(data_set=data_set, gen_depth=4,
-                                      population_size=500, max_iteration=1000, selection_type="tournament",
-                                      tournament_size=50, cross_over_rate=0.1, mutation_rate=0.99, thresh=thresh)
+                                      population_size=5, max_iteration=1000, selection_type="tournament",
+                                      tournament_size=3, cross_over_rate=0.5, mutation_rate=0.99, thresh=thresh)
 
         opt_exp = optimal_expression[0]
         row = optimal_expression[1]

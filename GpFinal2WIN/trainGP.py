@@ -102,13 +102,12 @@ def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iter
 
         for index in range(len(population_fitness)):
             if population_fitness[index] <= 133:
-                # if get_fitness[i] ==0:
                 print("#########################################################################")
                 print(True)
 
                 print("Iteration: ", x)
-                print("fitness index:", population_fitness.index(population_fitness[index]))
-                print("fitness: ", population_fitness[index])
+                print(" Training fitness index:", population_fitness.index(population_fitness[index]))
+                print(" Training fitness: ", population_fitness[index])
                 print()
                 # print(population)
                 print(population[index])
@@ -339,6 +338,10 @@ def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iter
         population = update_population1[0]
         # print(" new population: ", population)
         population_fitness = update_population1[1]
-        # print(" new population fitness:: ", population_fitness)
+        print(" new population fitness:: ", population_fitness)
 
         x += 1
+
+
+# if __name__=="__main__":
+#     pass

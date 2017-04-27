@@ -84,12 +84,12 @@ def run(training_size, testing_size):
 	# plt.legend(loc= "best")
 
 	save_file = open("./out.txt", 'a')
-    for i in accs:
-        save_file.write(str(i))
-        save_file.write(", ")
+	for i in accuracies:
+	    save_file.write(str(i))
+	    save_file.write(", ")
 
-    save_file.write("\n")
-    save_file.close()
+	save_file.write("\n")
+	save_file.close()
 	
 
 

@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
 import timeit
 import matplotlib.pyplot as plt
+import sys
 
 
 import wget
@@ -68,7 +69,8 @@ def run(training_size, testing_size):
 		accuracies.append(accuracy)
 
 		if i % 100==0:
-			print("iteration: ", i)
+			# print("iteration: ", i)
+			sys.stdout.write("iteration: "+str(i)+"\n" )
 
 	# print(accuracies)
 	# print("time taken")
@@ -90,6 +92,7 @@ def run(training_size, testing_size):
 
 	save_file.write("\n")
 	save_file.close()
+	sys.stdout.write("\n")
 	
 
 

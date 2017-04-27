@@ -31,7 +31,7 @@ def split_data(data,labels, train_s, test_s):
 
 
 def run_classifier(x_train, y_train, struct, x_test,  activate='logistic', iter_limit=1000):
-	mlp = MLPClassifier(hidden_layer_sizes=struct, activation=activate, max_iter=iter_limit)
+	mlp = MLPClassifier(hidden_layer_sizes=struct, activation=activate, solver='lbfgs', max_iter=iter_limit)
 	mlp.fit(x_train,y_train)
 	predictions = mlp.predict(x_test)
 
@@ -102,7 +102,7 @@ def run(training_size, testing_size):
 
 
 if __name__=="__main__":
-	run(0.1,0.9)
+	run(0.9,0.1)
 
 
 

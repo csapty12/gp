@@ -70,18 +70,26 @@ def run(training_size, testing_size):
 		if i % 100==0:
 			print("iteration: ", i)
 
-	print(accuracies)
-	print("time taken")
-	print(times)
+	# print(accuracies)
+	# print("time taken")
+	# print(times)
 
-	plt.boxplot(accuracies)
+	# plt.boxplot(accuracies)
 	
-	plt.figure()
-	plt.plot(list(range(len(times))), times, label = "Time taken to learn")
-	plt.legend(loc = "best")
-	plt.show()
+	# plt.figure()
+	# plt.plot(list(range(len(times))), times, label = "Time taken to learn")
+	# plt.legend(loc = "best")
+	# plt.show()
 	# plt.plot(list(range(len(accuracies))), accuracies, "b", label= "predictive accuracies over 2000 iterations")
 	# plt.legend(loc= "best")
+
+	save_file = open("./out.txt", 'a')
+    for i in accs:
+        save_file.write(str(i))
+        save_file.write(", ")
+
+    save_file.write("\n")
+    save_file.close()
 	
 
 

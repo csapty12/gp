@@ -82,7 +82,7 @@ Beaver introduced the idea of using financial ratios which could be used for CF 
 Altman used MDA in order to approach the task of CB prediction. He took an empirical set of financial variables and created financial ratios which were KPI?s that would be associated with failure prediction. This was essentially a linear model which was used in order to classify between non-failed companies and companies that are likely to fail.MDA allows for multiple ratios to be used as inputs and to be associated with weightings, to provide a classification of a selection of ratios simultaneously, making this very accurate and efficient, producing 95\% predictive accuracy. 
 
 The MDA technique was favoured as used multivariate data at once to get an overall prediction rather than taking each ratio and scoring that to give predictions \cite{?}, making this superior to IRS, but only if the KPI's were jointly distributed according to a multivariate normal distribution \cite{?}. \\
-Wilson  \cite{?}and Lensburg \cite{?} used newer approaches by implementing ANN's and GP's respectively to this classification problem. Both of these techniques can handle noisy data that is unevenly distributed better than Altman's MDA, showing that both ANN's and GP's have potential to be more accurate than IRS and MDA. 
+Wilson  \cite{?}and Lensburg \cite{?} used newer approaches by implementing ANNs and GP's respectively to this classification problem. Both of these techniques can handle noisy data that is unevenly distributed better than Altman's MDA, showing that both ANNs and GP's have potential to be more accurate than IRS and MDA. 
 
 ANNs tend to perform very well in terms of performance and accuracy. Wilson et al used an ANN approach with a (5, 10, 2) structure \cite{?}. To improve predictive accuracy, the Monte-Carlo technique was used to give a better representation of classifications. Overall, they achieved a 97.5\% accuracy on their testing dataset, making this much more accurate than MDA and IRS. \\
 Lee used a decision tree (DT) method to predict CB \cite{?}. Lee used 8 different KPI's when approaching this problem. Using this GP model, the testing accuracy of 92.91\%. Rostamy \cite{?} used a similar approach to Lee, using five different KPI's. After training the GP, it could correctly predict if a company would go bankrupt or not 90\% of the time, which was like MDA, however more flexible in terms of the type of data that could be used.
@@ -105,7 +105,7 @@ Once the development part of the project is complete, I planned to test the resu
 
 To allow the ANN to learn, I will be using the training dataset. When testing this, I will use a testing dataset to validate the results to see the true accuracy. I will also use K-Fold Cross-Validation techniques to help improve the comparability and the accuracy as well.. To increase comparability, I will also use the same datasets for both ANN and GP.
 
-I will also consider the number of iterations that have been used to complete the task in both ANN and GP. The time it takes to process the inputs will also be compared. To determine what KPI's have a greater contribution than others, for the variables that are being used for ANN's, I will remove one ratio, rerun the programs under the same training and testing conditions to then check the outputted value to see how significantly different the output is with and without that ratio. This will help to determine what ratios have a greater weighting and could be a significant factor in the future success or demise of a company. 
+I will also consider the number of iterations that have been used to complete the task in both ANN and GP. The time it takes to process the inputs will also be compared. To determine what KPI's have a greater contribution than others, for the variables that are being used for ANNs, I will remove one ratio, rerun the programs under the same training and testing conditions to then check the outputted value to see how significantly different the output is with and without that ratio. This will help to determine what ratios have a greater weighting and could be a significant factor in the future success or demise of a company. 
 
 Overall, to make my project successful, I will take these factors into account before starting to program, to prevent any long-term errors that could occur. I will also use a reliable GUI to help prevent programming errors, which in turn will make my project more successful. 
 %\newpage
@@ -140,7 +140,7 @@ I chose to implement a feed forward artificial neural network, based on the rese
 A feed-forward ANN usually follows the same layout which makes them applicable to an array of complex problem. The basic structure of the ANN can be seen in figure1, which consists of an input layer, hidden layer(s) and an output layer. The input layer consists of the feature vector which represents the data inputs as a single layer of nodes. The hidden layer(s) and hidden nodes are used to help reduce alter the representation of the data by transforming it, and reducing any non-linearity's in the data. The output is a response vector that can consist of a single node, which will output the feature vectors classification. Connecting the nodes in each layer is accomplished using weighted neural synapses, that connect each node in the current layer to each node in the next layer. Since ANNs have been used multiple times for this particular type of binary classification problem, the ANN designed to be a benchmark for predictive accuracy on this particular dataset, which can be compared against the GP that will be developed. 
 
 \subsubsection{Input Layer and Synaptic Weights}
-Since ANN's can cope with high dimensional, non-linear data, I initially decided to use all five of the KPI ratios as the input feature vector that was created from the dataset as the ANN would be more than capable to handle all this data at once.\\
+Since ANNs can cope with high dimensional, non-linear data, I initially decided to use all five of the KPI ratios as the input feature vector that was created from the dataset as the ANN would be more than capable to handle all this data at once.\\
 
 Due to the stochastic nature of an ANN, when initialising the network before the data from the input features are read into the network, the weights that each node in the previous layer to each node in the next layer also needed to be initialised. As part of the design, I chose to completely randomise the weights on each of the synapses. If the weights were not initialised randomly, when the network starts to learn, it would learn in the exactly same way every time the program is run because the network will always start at the same position in the search space, which means it will always follow the same route to get to a solution which would always be the same since the stochastic element has been removed.  By initialising the weights randomly, the symmetry of the network is broken, which allows the network to be initialised differently, so the weighted input signal that moves from one layer to the next would always be different, allowing more of the search space to be explored, which would allow more solutions ( possibly more optimal solutions ) to be found.
 \subsubsection{Hidden Layers and Activation Function }
@@ -280,6 +280,15 @@ After implementing the classes and subroutines based on the design specification
 Within the \textit{train\textunderscore gp} function, the initial population is generated exactly once, and enters a while loop. The significance of this loop realtes to one of the termination criteria - \textit{max\textunderscore iteration}. The model starts by evaluating the population exactly once, and then checks to see if an optimal solution already exists in the original population. If the original fitness is smaller than or equal to 100, then this has met the termination criteria as the this function would have at least 80\% training accuracy. The second termination criteria is met if the user defined maximum number of iterations are met. 
 
 Once the termination has been met, the optimal function is then returned and this function is used to test the predictive accuracy of hold out data to see if it is able to classify the hold out sample data correctly. \\\\
+After executing this model multiple times, \textit{optFunc} and \textit{optFunc2} show examples of optimal functions that were produced, which gave 75\% and \% predictive accuracies on the hold out sets respectively. 
+\begin{align*}
+optFunc =  35.400318494530815+(X3-X2-(673.1926383*X2*\\
+X4^4*X5^2+8.7779947854)-25.99600428294065*X4^3*X5)
+\end{align*}
+\begin{align*}
+optFunc2 = X5-2X2+18.0957028146+((((X4-51.9341748689*X4-\\
+X5-X2)*X3-X2+X3)*X5)-X2-X3)*X4*31.499808477158115
+\end{align*}
 Now that this was complete, the GP had been successfully designed and implemented, following the design specification. Now that both models were created, the next stage of the waterfall development was to test the code, which will be discussed in section 5. 
 %\newpage
 \section{Testing, Results and Comparisons} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -324,6 +333,7 @@ After the children were evaluated, I used white box testing to confirm that the 
 
 Finally, the last section to test was the termination criteria. using a sample population, I was able to track the progress of the population through a few iterations, and kept the termination criteria very flexible, to check that if certain conditions were met, the program would terminate successfully with the correct function being returned as part of the output. 
 
+
 \subsubsection{Running the Genetic Program - Training and Testing datasets}
 Similar to the ANN, in GPs, it is very common for the network to train using one dataset and to test the predictive classification accuracy on another dataset. During the development of the project, after simple problems were able to produce the correct results, I used a random selection of 10 rows of data from the original dataset which could be used to train the network as a sample, as a validation method to see if the accuracy of training prediction increased over time. If after \textit{n} iterations, the optimal solution was found for example with 90\% training accuracy, this confirmed that the model was learning the data over time, to produce an optimal function. Using this confirmation, I was then able to feed in the full dataset to see if the model would still learn. \\
 My first method of testing was to train the GP using the full given data set. After this was done, since another dataset was unavailable, I used the same dataset to test the predictive accuracy of the genetic program optimal equations. Even thought it was thought that this would in theory achieve 100\% predictive accuracy, the GP produced between 70-75\% accuracy. The reason for this is every time a new population is generated, a different area of the search space is explored, which means the function, albeit have the same training and testing data, it will not produce 100\% testing predictive accuracy. 
@@ -349,6 +359,7 @@ Another parameter that could be tuned was the maximum number of iterations allow
 \subsection{Comparisons of Artificial Neural Networks and Genetic Programs}
 Using the two models, these could both be tested individually as above, against each other and against other bench mark tests such as the predictive accuracies that Altman was able to achieve. 
 Through testing both models that were made, I tuned the parameters such that the optimal parameters that gave the best results from each model could be compared. 
+
 
 %learning rate
 %time taken
@@ -392,6 +403,7 @@ There are multiple factors that may have affected the overall classification acc
 %different datasets
 %not enough genetic operators - not sufficient range
 %what would happen with parity of 1 operators
+%tak about bloat
 
 %could change tree to have arity of 1s included 
 %restarted set of operators atm 
@@ -400,13 +412,20 @@ There are multiple factors that may have affected the overall classification acc
 
 \newpage
 \section{Future Work}
-If the dissertation could be worked on in the future, there would be a few changes that could have been made, which would have made the project more successful.
+Due to time restrictions, for this project, there were several other features that each model could have used, which could have improved the development of each model but also in terms of comparisons. 
 
 Firstly, the ANN was built using a library, rather than from scratch, whereas the GP was built without the use of optimised libraries to help give better results. To make the the models more comparable, the ANN could be created without the use of a library such as \textit{Sklearn}. Secondly an optimised library such as \textit{PyEvolve} or \textit{DEAP} could be used, to develop the genetic program. The reason that I have suggested this, is that more models could then be compared, against 2 ANNs and 2 GP, and can compare their accuracies, efficiencies, and the possible causes for this. 
 
-Secondly, if there was more time, a maximum tree depth would be enforced more strictly. Through crossover and mutation, the trees that are built can start to grow very quickly, especially when the crossover node has been selected higher up in the tree. As Figure (?) shows, this also means that the larger the tree, the more computationally expensive it is to evaluate a larger tree. By imposing a maximum tree depth on any trees created, this would have several benefits. Firstly, it would reduce the computation time significantly as only children that fit within this maximum depth would be produced. In turn, the solutions produced would would also be much smaller, but just as effective and could produce an optimal result. This also means that when training a model, the maximum iteration counter could be significantly larger, as this would not affect the computation time at all, as all the solutions would be much smaller. 
+Secondly, when developing the genetic program, if there was more time, a maximum tree depth would be enforced more strictly. Through crossover and mutation, the trees that are built can start to grow very quickly, especially when the crossover node has been selected higher up in the tree. As Figure (?) shows, this also means that the larger the tree, the more computationally expensive it is to evaluate a larger tree. By imposing a maximum tree depth on any trees created, this would have several benefits. Firstly, it would reduce the computation time significantly as only children that fit within this maximum depth would be produced. In turn, the solutions produced would would also be much smaller, but just as effective and could produce an optimal result. This also means that when training a model, the maximum iteration counter could be significantly larger, as this would not affect the computation time at all, as all the solutions would be much smaller.
+Another factor that could be avoided in the future would be to not include a function that requires the building of a list of nodes to store the trees. To select a random node, rather that selecting from a list, this could be done directly via the tree itself. which would require less computation than building the tree, a list of nodes and selecting then selecting a node from the list of nodes. This in turn would help to improve the performance of the model.  
 
-Next, when  
+Next, when the optimal function produced is returned, the function produced could be pruned. Currently, the expression may very large, which may not be straightforward to read. One way that this could be fixed in the future would be to prune the optimal expression, which evaluate any sub-expressions, and therefore cut down the total size of the function, whilst maintaining its original accuracy. This would make for a much better formulated function which would be much easier for a user to and use. 
+
+Whilst testing the GP, only one type of crossover and mutation was implemented. Although this was sufficient, to allow more testing to occur, other crossover methods could be implemented such as \textit{size-fair crossover} could be used, which would help control the tree size by proportionally selecting a random subtree for parent one, but the same sized subtree for parent two. For mutations, a \textit{hoist mutation} or a \textit{shrink mutation} could be implemented. These could then be used with the crossover methods to help create more tests, which may be far better than just using the standard node replacement mutation that was used. 
+
+Finally, for the datasets used, they were only American companies that were considered. In the future, data from other economies could be used, for example, from the British economy. This would provide score for more testing to be completed, to see if the current models could predict as accurately for companies from other countries. By having data from other economies, it could also potentially be used to make GP that could be applied universally, such that any company from around the world would be able to use the function to get a prediction and a classification. \\
+
+Overall, if there was more time, many features could be inserted or adapted to make the development and usability of the genetic program potentially better, and more accurate. 
 \newpage
 \section{Conclusion}
 

@@ -81,15 +81,10 @@ m7 = np.mean(tr07)
 m8 = np.mean(tr08)
 m9 = np.mean(tr09)
 
-print(m1)
-print(m2)
-print(m3)
-print(m4)
+
 print(m5)
 print(m6)
-print(m7)
-print(m8)
-print(m9)
+
 print("")
 print("variances")
 print("variance 0.5: ",np.var(tr05))

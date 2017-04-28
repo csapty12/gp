@@ -1,7 +1,5 @@
 import numpy as np
 from numpy.random import shuffle
-from sklearn import preprocessing
-from sklearn.decomposition import PCA
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
 import timeit
@@ -22,7 +20,7 @@ def read_data(file_name):
 	class_labels_CBD = np.asarray(class_labels_CBD)
 
 	data_CBD=CBD[:,0:-1]
-
+	print(data_CBD)
 	return data_CBD, class_labels_CBD
 
 def split_data(data,labels, train_s, test_s):
@@ -40,12 +38,19 @@ def run_classifier(x_train, y_train, struct, x_test,  activate='logistic', iter_
 def predictive_accuracy(predictions, y_test):
 	trufa = y_test==predictions
 	accuracy = round((sum(trufa)/len(trufa))*100)
-	# print("Accuracy: ", accuracy ,"%")
 	return accuracy
 
-def run(training_size, testing_size):
+def read_config(config_file):
+	struct=np.loadtxt(config_file)
+	format_vals = [int(i) for i in struct]
+	ANN_struct = tuple(format_vals)
+	return ANN_struct
+
+
+def run(training_size, testing_size, config_file):
 	
 	read_d = read_data('banking.txt')
+	ANN_structure = read_config(config_file)
 	data = read_d[0]
 	labels = read_d[1]
 
@@ -60,7 +65,7 @@ def run(training_size, testing_size):
 		y_test = x[3]
 
 
-		train_model = run_classifier(x_train,y_train, (5,5), x_test)
+		train_model = run_classifier(x_train,y_train, ANN_structure, x_test)
 		# print(train_model)
 		elapse = timeit.default_timer() - start_time
 		times.append(elapse)
@@ -102,7 +107,7 @@ def run(training_size, testing_size):
 
 
 if __name__=="__main__":
-	run(0.9,0.1)
+	run(0.9,0.1, './config.txt')
 
 
 

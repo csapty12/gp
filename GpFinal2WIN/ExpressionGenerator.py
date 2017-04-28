@@ -25,7 +25,7 @@ class GenMember(object):
 
         # print out either a random number between 0 and 50, or a variable X1-X5.
         if max_depth == 1:
-            terminals = [random() * 50, "X1", "X2", 'X3', "X4", "X5"]  # random() * 50,
+            terminals = ["X1", "X2", 'X3', "X4", "X5"]  # random() * 50,
             return self.__str__(choice(terminals))
 
         # include bracketing 20% of the time.

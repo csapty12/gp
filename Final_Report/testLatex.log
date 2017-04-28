@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.11)  27 APR 2017 19:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.11)  28 APR 2017 22:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -288,15 +288,15 @@ LaTeX Font Info:    ... okay on input line 11.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: includefoot 
-* h-part:(L,W,R)=(71.13188pt, 472.03123pt, 71.13188pt)
-* v-part:(T,H,B)=(71.13188pt, 666.9326pt, 56.9055pt)
+* h-part:(L,W,R)=(62.59596pt, 489.10307pt, 62.59596pt)
+* v-part:(T,H,B)=(62.59596pt, 675.46852pt, 56.9055pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=472.03123pt
-* \textheight=636.9326pt
-* \oddsidemargin=-1.1381pt
-* \evensidemargin=-1.1381pt
-* \topmargin=-38.1381pt
+* \textwidth=489.10307pt
+* \textheight=645.46852pt
+* \oddsidemargin=-9.67403pt
+* \evensidemargin=-9.67403pt
+* \topmargin=-46.67403pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=11.0pt
@@ -390,231 +390,251 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
  [2]
 
-LaTeX Warning: Citation `?' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `?' on page 1 undefined on input line 33.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--39
+Underfull \hbox (badness 10000) in paragraph at lines 35--37
 
  []
 
 
-LaTeX Warning: Citation `?' on page 1 undefined on input line 45.
+LaTeX Warning: Citation `?' on page 1 undefined on input line 43.
 
 
-LaTeX Warning: Citation `?' on page 1 undefined on input line 48.
+LaTeX Warning: Citation `?' on page 1 undefined on input line 46.
 
 
-LaTeX Warning: Citation `?' on page 1 undefined on input line 51.
+LaTeX Warning: Citation `?' on page 1 undefined on input line 49.
 
 
-LaTeX Warning: Citation `?' on page 1 undefined on input line 51.
+LaTeX Warning: Citation `?' on page 1 undefined on input line 49.
 
 [1
 
 ]
 
-LaTeX Warning: Citation `?' on page 2 undefined on input line 53.
+LaTeX Warning: Citation `?' on page 2 undefined on input line 51.
+
+
+LaTeX Warning: Citation `?' on page 2 undefined on input line 60.
 
 
 LaTeX Warning: Citation `?' on page 2 undefined on input line 62.
 
 
-LaTeX Warning: Citation `?' on page 2 undefined on input line 64.
+LaTeX Warning: Citation `?' on page 2 undefined on input line 67.
 
 
-LaTeX Warning: Citation `?' on page 2 undefined on input line 69.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 69--71
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
 
  []
 
 [2]
 
-LaTeX Warning: Citation `?' on page 3 undefined on input line 76.
+LaTeX Warning: Citation `?' on page 3 undefined on input line 74.
 
 
-LaTeX Warning: Citation `?' on page 3 undefined on input line 84.
+LaTeX Warning: Citation `?' on page 3 undefined on input line 82.
 
 
-LaTeX Warning: Citation `?' on page 3 undefined on input line 84.
+LaTeX Warning: Citation `?' on page 3 undefined on input line 82.
+
+
+LaTeX Warning: Citation `?' on page 3 undefined on input line 83.
+
+
+LaTeX Warning: Citation `?' on page 3 undefined on input line 83.
 
 
 LaTeX Warning: Citation `?' on page 3 undefined on input line 85.
 
 
-LaTeX Warning: Citation `?' on page 3 undefined on input line 85.
+LaTeX Warning: Citation `?' on page 3 undefined on input line 86.
+
+
+LaTeX Warning: Citation `?' on page 3 undefined on input line 86.
 
 [3]
 
-LaTeX Warning: Citation `?' on page 4 undefined on input line 87.
-
-
 LaTeX Warning: Citation `?' on page 4 undefined on input line 88.
 
 
-LaTeX Warning: Citation `?' on page 4 undefined on input line 88.
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
+
+ []
 
 
 LaTeX Warning: Citation `?' on page 4 undefined on input line 90.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
-
- []
+LaTeX Warning: Citation `'''' on page 4 undefined on input line 90.
 
 
-LaTeX Warning: Citation `?' on page 4 undefined on input line 92.
+LaTeX Warning: Citation `?' on page 4 undefined on input line 90.
 
 
-LaTeX Warning: Citation `'''' on page 4 undefined on input line 92.
-
-
-LaTeX Warning: Citation `?' on page 4 undefined on input line 92.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
 [4] [5]
 
-LaTeX Warning: Citation `?' on page 6 undefined on input line 130.
+LaTeX Warning: Citation `?' on page 6 undefined on input line 132.
 
 <ANN.png, id=35, 797.98125pt x 378.41376pt>
 File: ANN.png Graphic file (type png)
  <use ANN.png>
-Package pdftex.def Info: ANN.png used on input line 136.
+Package pdftex.def Info: ANN.png used on input line 137.
 (pdftex.def)             Requested size: 295.24843pt x 140.0109pt.
- [6 <./ANN.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 143--144
+
+
+LaTeX Warning: Citation `?' on page 6 undefined on input line 140.
+
+[6 <./ANN.png>]
+
+LaTeX Warning: Citation `?' on page 7 undefined on input line 149.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--157
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
-
- []
-
-[7] <GPFlowReformat.png, id=47, 764.8575pt x 757.83125pt>
+<GPFlowReformat.png, id=41, 764.8575pt x 757.83125pt>
 File: GPFlowReformat.png Graphic file (type png)
+ <use GPFlowReformat.png>
+Package pdftex.def Info: GPFlowReformat.png used on input line 160.
+(pdftex.def)             Requested size: 420.67291pt x 416.80847pt.
 
-<use GPFlowReformat.png>
-Package pdftex.def Info: GPFlowReformat.png used on input line 156.
-(pdftex.def)             Requested size: 344.1827pt x 341.02092pt.
- [8 <./GPFlowReformat.png>]
-<binaryT.png, id=52, 742.775pt x 322.20375pt>
+[7] [8 <./GPFlowReformat.png>] <binaryT.png, id=52, 742.775pt x 322.20375pt>
 File: binaryT.png Graphic file (type png)
- <use binaryT.png>
-Package pdftex.def Info: binaryT.png used on input line 171.
-(pdftex.def)             Requested size: 222.83421pt x 96.66187pt.
+
+<use binaryT.png>
+Package pdftex.def Info: binaryT.png used on input line 176.
+(pdftex.def)             Requested size: 297.10474pt x 128.87921pt.
 
 
-LaTeX Warning: Citation `?' on page 9 undefined on input line 176.
+LaTeX Warning: Citation `?' on page 9 undefined on input line 181.
 
 
-LaTeX Warning: Citation `?' on page 9 undefined on input line 176.
+LaTeX Warning: Citation `?' on page 9 undefined on input line 181.
 
 [9 <./binaryT.png>]
 
-LaTeX Warning: Citation `?' on page 10 undefined on input line 179.
+LaTeX Warning: Citation `?' on page 10 undefined on input line 185.
 
 
-LaTeX Warning: Citation `?' on page 10 undefined on input line 182.
+LaTeX Warning: Citation `?' on page 10 undefined on input line 188.
 
 [10] [11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 221--232
+
+LaTeX Warning: Citation `?' on page 13 undefined on input line 238.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--243
 
  []
 
-[13] [14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 253--256
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--256
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 257--258
+[13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 265--268
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
+Underfull \hbox (badness 10000) in paragraph at lines 265--268
 
  []
 
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 263--264
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 269--270
 
  []
 
 
-Overfull \hbox (22.27855pt too wide) in paragraph at lines 265--266
-[]\OT1/cmr/m/n/10.95 The pro-cess of mu-ta-tion could now be-gin. Like the pro-
-cess of crossover, I used the \OT1/cmr/m/it/10.95 se-lect[]random[]value
+Underfull \hbox (badness 10000) in paragraph at lines 271--272
+
  []
 
-[17]
+
 Underfull \hbox (badness 10000) in paragraph at lines 273--274
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--284
+Underfull \hbox (badness 10000) in paragraph at lines 275--276
 
  []
 
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 296--297
+[16]
+Overfull \hbox (5.20671pt too wide) in paragraph at lines 277--278
+[]\OT1/cmr/m/n/10.95 The pro-cess of mu-ta-tion could now be-gin. Like the pro-
+cess of crossover, I used the \OT1/cmr/m/it/10.95 se-lect[]random[]value
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
 
  []
 
-<optTTS.png, id=88, 550.055pt x 457.71pt>
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 294--296
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 308--309
+
+ []
+
+[18] <optTTS.png, id=89, 550.055pt x 457.71pt>
 File: optTTS.png Graphic file (type png)
  <use optTTS.png>
-Package pdftex.def Info: optTTS.png used on input line 305.
+Package pdftex.def Info: optTTS.png used on input line 317.
 (pdftex.def)             Requested size: 275.02682pt x 228.85445pt.
- [19] [20 <./optTTS.png>] <graph.png, id=97, 1003.75pt x 351.3125pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<graph.png, id=90, 1003.75pt x 351.3125pt>
 File: graph.png Graphic file (type png)
  <use graph.png>
-Package pdftex.def Info: graph.png used on input line 313.
+Package pdftex.def Info: graph.png used on input line 325.
 (pdftex.def)             Requested size: 501.87378pt x 175.6558pt.
 
-Overfull \hbox (29.84254pt too wide) in paragraph at lines 313--314
+Overfull \hbox (12.7707pt too wide) in paragraph at lines 325--326
  [][] 
  []
 
-[21 <./graph.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 328--329
+[19]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[20 <./optTTS.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
 
  []
 
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 346--348
+[21 <./graph.png>] [22]
+Underfull \hbox (badness 10000) in paragraph at lines 358--360
 
  []
 
-[23] <thresh.png, id=108, 594.22pt x 442.65375pt>
+<thresh.png, id=105, 594.22pt x 442.65375pt>
 File: thresh.png Graphic file (type png)
  <use thresh.png>
-Package pdftex.def Info: thresh.png used on input line 352.
+Package pdftex.def Info: thresh.png used on input line 364.
 (pdftex.def)             Requested size: 237.68379pt x 177.05835pt.
- [24 <./thresh.png>] [25]
-Underfull \hbox (badness 10000) in paragraph at lines 397--399
+ [23 <./thresh.png>] [24]
+Underfull \hbox (badness 10000) in paragraph at lines 409--411
 
  []
 
-[26]
-Underfull \hbox (badness 10000) in paragraph at lines 426--427
+
+Underfull \hbox (badness 10000) in paragraph at lines 418--419
+
+ []
+
+[25] [26]
+Underfull \hbox (badness 10000) in paragraph at lines 452--453
 
  []
 
@@ -626,7 +646,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  4491 strings out of 493014
  66674 string characters out of 6133351
- 238731 words of memory out of 5000000
+ 237744 words of memory out of 5000000
  7975 multiletter control sequences out of 15000+600000
  11178 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -645,7 +665,7 @@ al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
 l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
 texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on testLatex.pdf (31 pages, 616307 bytes).
+Output written on testLatex.pdf (31 pages, 620206 bytes).
 PDF statistics:
  170 PDF objects out of 1000 (max. 8388607)
  111 compressed objects within 2 object streams

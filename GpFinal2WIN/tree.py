@@ -1,6 +1,7 @@
 from node import Node
 from ExpressionGenerator import GenMember
 from random import choice
+import numpy as np
 
 
 class Tree(object):
@@ -194,7 +195,8 @@ class Tree(object):
             if node.value not in ["X1", "X2", "X3", "X4", "X5"]:
                 # alter the value by a small amount
                 val = float(node.value)
-                val -= 0.1
+                rand_Gaus = np.random.randn()
+                val *= rand_Gaus
                 node.value = str(val)
 
             else:

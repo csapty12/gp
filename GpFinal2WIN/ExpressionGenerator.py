@@ -1,6 +1,7 @@
 from random import choice, random, sample
 from data import Data
 import numpy as np
+import math
 
 
 class GenMember(object):
@@ -63,7 +64,7 @@ class GenMember(object):
             expression_list = [item for item in expression_list if 'X1' and 'X2' and 'X3' and 'X4' and 'X5' in item]
         return expression_list
 
-    def get_fitness(self, expressions, data, label, child=False):
+    def get_fitness(self, expressions, data, label, thresh, child=False):
         """
         Function to get the fitness of the population. Fitness function based on Number of Hits method.
         :param expressions: list of expressions being passed in. If not first iteration, then expression comes in
@@ -108,14 +109,19 @@ class GenMember(object):
                 else:
                     # if the total is greater than 0 i.e. positive, append 0, else 1
                     for j in x:
-                        if j >= 0:
+                        try:
+                            sig = 1 / (1 + math.exp(-j))
+                        except OverflowError:
+                            sig = 0
+                        except ZeroDivisionError:
+                            sig = 0
+                        if sig > thresh:
                             tmp.append(1)
                         else:
                             tmp.append(0)
                     predictions.append(tmp)
             # if expression contains "/0" throw ZeroDivisionError and give individual a poor fitness.
             except ZeroDivisionError:
-                # print("cannot divide by 0!!!")
                 for k in range(len(X1)):
                     tmp = [9999] * len(X1)
                 predictions.append(tmp)

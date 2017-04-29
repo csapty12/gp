@@ -15,84 +15,103 @@ def run_gp(data_set, thresh=0.5):
     timer = list()
     start_time = timeit.default_timer()
 
-    # for i in range(10):
-    elapse = timeit.default_timer() - start_time
-    timer.append(elapse)
-    optimal_expression = train_gp(data_set=data_set, gen_depth=4,
-                                  population_size=100, max_iteration=1000, selection_type="tournament",
-                                  tournament_size=40, cross_over_rate=0.5, mutation_rate=0.99, thresh=thresh)
+    for i in range(5):
+        elapse = timeit.default_timer() - start_time
+        timer.append(elapse)
+        optimal_expression = train_gp(data_set=data_set, gen_depth=3,
+                                      population_size=500, max_iteration=1000, selection_type="select_best",
+                                      tournament_size=40, cross_over_rate=0.1, mutation_rate=0.99, thresh=thresh)
 
-    opt_exp = optimal_expression[0]
-    row = optimal_expression[1]
-    label = optimal_expression[2]
-    print("training times")
-    training_time = optimal_expression[4]
-    print(training_time)
+        opt_exp = optimal_expression[0]
+        row = optimal_expression[1]
+        label = optimal_expression[2]
+        # print("training times")
+        training_time = optimal_expression[4]
+        # print(training_time)
+        training_fitnesses =  optimal_expression[3]
 
-    exp = list()
-    exp.append(opt_exp)
-    optimal_expression = exp
-    prediction = list()
-    for i in optimal_expression:
-        tmp = list()
-        for j in row:
+        print(training_fitnesses)
+        exp = list()
+        exp.append(opt_exp)
+        optimal_expression = exp
+        prediction = list()
+        for i in optimal_expression:
+            tmp = list()
+            for j in row:
 
-            new_exp = i.replace("X1", str(j[0])).replace("X2", str(j[1])).replace("X3", str(j[2])) \
-                .replace("X4", str(j[3])).replace("X5", str(j[4]))
-            try:
-                eva = eval(new_exp)
-            except ZeroDivisionError:
-                eva = 0
-            if eva >= 0:
-                x = eva
-                tmp.append(x)
-            else:
-                y = eva
-                tmp.append(y)
-        prediction.append(tmp)
+                new_exp = i.replace("X1", str(j[0])).replace("X2", str(j[1])).replace("X3", str(j[2])) \
+                    .replace("X4", str(j[3])).replace("X5", str(j[4]))
+                try:
+                    eva = eval(new_exp)
+                except ZeroDivisionError:
+                    eva = 0
+                if eva >= 0:
+                    x = eva
+                    tmp.append(x)
+                else:
+                    y = eva
+                    tmp.append(y)
+            prediction.append(tmp)
 
-    prob = list()
+        prob = list()
+        err = list()
+        for i in prediction:
+            for j in i:
+                try:
 
-    for i in prediction:
-        for j in i:
-            try:
-                # print("hereeeeeee")
-                sig = 1 / (1 + math.exp(-j))
-            except OverflowError:
-                sig = 0
-            except ZeroDivisionError:
-                sig = 0
-            if sig > thresh:
-                prob.append(1)
-            else:
-                prob.append(0)
+                    sig = 1 / (1 + math.exp(-j))
+                except OverflowError:
+                    sig = 0
+                except ZeroDivisionError:
+                    sig = 0
+                err.append(sig)
+                if sig > thresh:
+                    prob.append(1)
+                else:
+                    prob.append(0)
 
-        # print("expression: ", optimal_expression)
-        # print("classifications")
-        # print(prob)
-
+        # true false array to compare the predicted values against the actual class labels.
         trufa = prob == label
-        # print("true false array")
-        # print(trufa)
         ls = sum(trufa) / len(trufa)
         print("accuracy: ", ls)
-        # accs.append(ls)
-    # print("accs")
-    # print(accs)
+        accs.append(ls)
+    print("accs")
+    print(accs)
 
-    # save_file = open("./out.txt", 'a')
-    # for i in accs:
-    #     save_file.write(str(i))
-    #     save_file.write(", ")
-    #
-    # save_file.write("\n")
-    # save_file.close()
+    save_file = open("./out.txt", 'a')
+    for i in accs:
+        save_file.write(str(i))
+        save_file.write(", ")
+
+    save_file.write("\n")
+    save_file.close()
     # print("time taken over n runs")
     # print(timer)
+    return label, prob
+
+def draw_ROC(label, err):
+    from sklearn.metrics import roc_curve, auc
+    import matplotlib.pyplot as plt
+    actual = label
+    predictions = err
+    false_positive_rate, true_positive_rate, thresholds = roc_curve(actual, predictions)
+    roc_auc = auc(false_positive_rate, true_positive_rate)
+    plt.title('Receiver Operating Characteristic')
+    plt.plot(false_positive_rate, true_positive_rate, 'b',
+             label='AUC = %0.2f' % roc_auc)
+    plt.legend(loc='lower right')
+    plt.plot([0, 1], [0, 1], 'r--')
+    plt.xlim([-0.1, 1.1])
+    plt.ylim([-0.1, 1.1])
+    plt.ylabel('True Positive Rate')
+    plt.xlabel('False Positive Rate')
+    plt.show()
 
 
 if __name__ == "__main__":
-    run_gp('dataset2.txt')
+    clasifier = run_gp('dataset2.txt')
+    draw_ROC(clasifier[0], clasifier[1])
+
 
 
 # TODO - IMPLEMENT LEVEL CAP - OR AT LEAST HANDLE IT SOMEHOW

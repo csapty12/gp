@@ -30,5 +30,5 @@ class Data(object):
     def train_test_split_ds(self, data, label):
         x = data
         y = label
-        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+        x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, test_size=0.2)
         return x_train, y_train, x_test, y_test

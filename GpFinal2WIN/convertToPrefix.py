@@ -62,7 +62,7 @@ class ToPrefixParser(object):
             x = expression[0]
             if not isinstance(x, str):
                 return None
-            expression[0:1] = []
+            expression[0:1] = list()
             return ToPrefixParser(val=x)
 
     def get_product(self, expression):

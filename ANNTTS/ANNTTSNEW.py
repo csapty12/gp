@@ -2,10 +2,15 @@ import numpy as np
 from numpy.random import shuffle
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
+from sklearn.metrics import confusion_matrix
+from sklearn import metrics
 import timeit
 import sys
 import configparser
 import os.path
+import pandas as pd
+from ggplot import *
+import matplotlib.pyplot as plt
 
 
 def make_config():
@@ -112,11 +117,13 @@ def predictive_accuracy(predictions, y_test):
     :return: the percentage accuracy of the ANN model
     """
     trufa = y_test == predictions
+    # print(confusion_matrix(y_test,predictions))
+
     accuracy = round((sum(trufa) / len(trufa)) * 100)
     return accuracy
 
 
-def run(data_set, config_file, run_n_times=1):
+def run(data_set, config_file, show_graph=False, boxplt=False, roc=False):
     """
     Function to run the ANN model to train and test the model.
     :param data_set: the data set to be used to train and test the model
@@ -124,48 +131,57 @@ def run(data_set, config_file, run_n_times=1):
     :param run_n_times: the number of times to run the model
     :return: the accuracy of the trained model on the testing data set in a out.txt file.
     """
-    read_d = read_data(data_set)
+
+    # get the structure of the ANN from the configuration file
     train_size = float(config_file[0])
     test_size = float(config_file[1])
     hidden_layers = tuple(map(int, config_file[2].split(' ')))
     activation = config_file[3]
-    data = read_d[0]
-    labels = read_d[1]
+    max_iterations = int(config_file[5])
 
     accuracies = list()
     times = list()
-    for i in range(run_n_times):
+    for i in range(max_iterations):
+        # reshuffle the datasets each time
+        read_d = read_data(data_set)
+        data = read_d[0]
+        labels = read_d[1]
         start_time = timeit.default_timer()
         x = split_data(data, labels, train_size, test_size)
         x_train = x[0]
         y_train = x[1]
         x_test = x[2]
         y_test = x[3]
-
         train_model = run_classifier(x_train, y_train, hidden_layers, x_test, activate=activation)
-        # print(train_model)
+        predsTESTING = train_model[1]
+        # print(predsTESTING)
         elapse = timeit.default_timer() - start_time
         times.append(elapse)
         accuracy = predictive_accuracy(train_model, y_test)
-        # print("predictive accuracy of model: ", accuracy)
         accuracies.append(accuracy)
-
         if i % 100 == 0:
-            # print("iteration: ", i)
             sys.stdout.write("iteration: " + str(i) + "\n")
 
-    # print(accuracies)
-    # print("time taken")
-    # print(times)
+    if show_graph == True and roc == True:
+        False_Positive_Rate, True_Positive_Rate, _ = metrics.roc_curve(y_test, predsTESTING)
+        df = pd.DataFrame(dict(fpr=False_Positive_Rate, tpr=True_Positive_Rate))
+        auc = metrics.auc(False_Positive_Rate, True_Positive_Rate)
+        g = ggplot(df, aes(x='False_Positive_Rate', y='True_Positive_Rate')) + geom_line() + geom_abline(
+            linetype='dashed') + geom_area(alpha=0.2) + \
+            ggtitle("ROC Curve w/ AUC=%s" % str(auc))
+        g.show()
 
-    # plt.boxplot(accuracies)
-
-    # plt.figure()
-    # plt.plot(list(range(len(times))), times, label = "Time taken to learn")
-    # plt.legend(loc = "best")
-    # plt.show()
-    # plt.plot(list(range(len(accuracies))), accuracies, "b", label= "predictive accuracies over 2000 iterations")
-    # plt.legend(loc= "best")
+    if show_graph == True and boxplt == True:
+        plt.boxplot(accuracies)
+        plt.figure()
+        plt.plot(list(range(len(times))), times, label="Time taken to learn")
+        plt.legend(loc="best")
+        plt.xlabel("Number of Iterations")
+        plt.ylabel("Time taken (s)")
+        plt.show()
+        plt.plot(list(range(len(accuracies))), accuracies, "b", label="predictive accuracies over 2000 iterations")
+        plt.legend(loc="best")
+        plt.show()
 
     save_file = open("./out.txt", 'a')
     for i in accuracies:
@@ -180,12 +196,9 @@ def run(data_set, config_file, run_n_times=1):
 if __name__ == "__main__":
     file_path = './config.ini'
     if os.path.exists(file_path):
-        # print("Trueeeee")
         configuration_file = read_config_file(file_path)
-        # print(configuration_file)
-
     else:
         print("No config file detected, creating default config.ini file")
         make_config()
         configuration_file = read_config_file(file_path)
-    run('./dataset2.txt', configuration_file, run_n_times=1)
+    run('./dataset2.txt', configuration_file, show_graph=False)

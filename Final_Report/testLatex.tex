@@ -182,7 +182,7 @@ It is common practise to initialise a population randomly in GPs. The reason for
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Fitness Function}
 The fitness function would represent the \textit{phenotype} of an individual, i.e. how good the individual is suited to its environment, representing how close it is to an optimal solution. This was done is through calculating the error between the true classifications of the data set and the predicted output as given by the function produced. The aim of this is to minimise the error between the actual classifications from the dataset and the number of incorrectly predicted classifications produced by the function where the optimal function which correctly classified every company would have a fitness value of 0. This can be called a minimisation problem where the objective is to minimise the fitness function. \\
-For this, I used the \textit{Number of Hits fitness function} \cite{?} . This fitness function is calculated by firstly passing each row of data through the function. For each row of data, the output will either be a positive or negative number given by this function. This output was then passed through a logistic function. If the value is greater than 0.5, it was classified as 1, otherwise 0. Using these classifications for each predicted row of data, these can now be compared against each of the true classifications from the data. For every row of data that is classified correctly, the fitness value does not increase. However for every misclassification, the fitness value for that function increases by 1. This shows that a good function which has more number of hits would have a lower fitness value, and a function which has a high misclassification rate has a high fitness value. 
+For this, I used the \textit{Number of Hits} fitness function \cite{?} . This fitness function is calculated by firstly passing each row of data through the function. For each row of data, the output will either be a positive or negative number given by this function. This output was then passed through a logistic function. If the value is greater than 0.5, it was classified as 1, otherwise 0. Using these classifications for each predicted row of data, these can now be compared against each of the true classifications from the data. For every row of data that is classified correctly, the fitness value does not increase. However for every misclassification, the fitness value for that function increases by 1. This shows that a good function which has more number of hits would have a lower fitness value, and a function which has a high misclassification rate has a high fitness value. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Selection}
 For most GPs, genetic operators like crossover and mutation are applied to certain individuals in the population based on their fitness value. The better the individual is in the population, the more likely they are to produce children functions.to select these parents, I chose to use \textit{tournament selection} \cite{?}. This works by selecting a random subset of the population, \textit{t}, and then comparing the fitnesses of each of members of \textit{t}. The individual with the best fitness value i.e. closest fitness to 0, will be selected as the first parent. This same process will occur to select the second parent. An individual can only be selected once per generation, as the same member of the population cannot be selected to be both parents. This will keep the selection pressure relatively constant as it does not favour the best individuals in the population, rather it selects the best individuals in the subset of the population selected as candidate parents. The reason this method was chosen was to help reduce selection pressure, which favours the very best individuals. By reducing this, it enables more members to be selected as candidates, and be chosen as parents, even if they were not the best solutions in the population. 
@@ -407,7 +407,7 @@ Firstly, I chose to compare the average time that it took the ANN and GP to trai
 Since the ANN is a fixed sized model, it was expected that the time to perform 1000 epochs to learn the model would remain relatively constant, as the size of the network never changes. 
 
 The GP starts off at the same learning rate as the ANN, however after approximately 200 epochs, the time taken to learn starts to increase exponentially. By 1000 iterations, it takes approximately 120 seconds to run one iteration of the GP. When increasing the maximum iteration limit even further, the ANN times stayed relatively constant, however the GP time took even longer.  A possible reason for this is that smaller expressions with smaller trees can be evaluated much faster, as there less computation is required to perform searching and evaluation. However as the trees undergo processes such as crossover, the new children trees can become much larger very quickly. In turn more recursion is required to search and evaluate the children produced which would increase the time to run one epoch. By 1000 iterations, the trees may have become exceedingly large, which means running one epoch will take significantly longer than when the population initially started. \\
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Another comparison that could be made was the readability between the two different models. One of the issues with ANNs is idea that it is known as a ``black box" model. Although it is possible to look inside the model whilst it is learning, it is very difficult to understand exactly what is being changed within the network and how it is learning. Therefore studying the ANN structure can be very challenging. However, this is not the case with the GP. Whilst the GP is learning, since the individuals are mathematical expressions, tracking every single stage of the GP from start to finish is possible. This means that should someone want to look into the model whilst it is training, the expressions being selected, crossed over and mutated can be viewed. As a result, when the final solution is obtained, a readable function is produced and the user will know exactly how this solution has developed based on the starting population. \\
 
 Finally, I also decided to compare the predictive accuracies of both models, based on their respective optimal parameters. Through out the testing stage, I made hypothesised that the ANN would outperform the GP in terms of predictive accuracy. To represent both results, an ROC curve was used. This  determined how likely the results produced were due to chance. 
@@ -416,44 +416,61 @@ Finally, I also decided to compare the predictive accuracies of both models, bas
 \includegraphics[scale = .50]{rocanngp}
 \caption{ROC curve comparing the performance of ANN and GP. The Area Under Curve (AUC)  evaluates the performance of a classifier, where a probability of 1 is the optimal under the curve for a perfect classifier. Red dashed line signifies total randomness as a benchmark at 0.5.  } 
 \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Looking at Figure 8, the ROC curve compares the ANN and GP true and false positive rates. The ROC shows that the area under the curve for the ANN and GP were 0.84 and 0.77 respectively, indicating that the both classification models produced relatively strong models. In terms of their predictive accuracy, the ANN on average was closer to the optimal area under the curve indicating that on average, using the testing dataset, it was able to classify 84\% of the companies into the correct classifications, and 77\% foe the GP. What can also be noted is that both of the models are a significant distance from the dashed red line, indicating the nether models achieved their results purely out of chance. \\
 
-Looking at Figure 8, the ROC curve compares the ANN and GP true and false positive rates. The ROC shows that the area under the curve for the ANN and GP were 0.84 and 0.77 respectively, indicating that the both classification models produced relatively strong models. In terms of their predictive accuracy, the ANN on average was closer to the optimal area under the curve indicating that on average, using the testing dataset, it was able to classify 84\% of the companies into the correct classifications, and 77\% foe the GP. 
-%To compare the predictive accuracies of both models, an ROC was made. This was used to determine how likely the results produced were due to chance. Secondly this curve helped to determine which model produced a better predictive accuracy. Using the difference between the predictive accuracies in both models, it could then be determined if one models predictive power was significantly better than the other. 
+Overall, after comparing some of the factors between the two optimised models, the ANN was generally superior to the GP, in terms of predictive accuracy and performance, however this does not mean to say that the GP performed poorly. Compared to the research conducted by Altman, who achieved 95\% predictive accuracy with his MDA model, the ANN and GP failed to meet this criteria. This could be due to the fact that he used a completely different dataset. Another factor could be because his data set did not include non linear data, which my dataset does. His research indicated that if the data was not linearly jointly distributed, then it was erroneous. Even though the models created perform worse than Altman's MDA model, they were able to handle non linear noisy data and still get between 70 - 85\% accuracy. 
+Part of the reason the ANN may have performed so well was due to the fact that the ANN used a fully optimised library. This could mean that some of these optimised functions being used within the ANN library helped it to achieve better predictive results. 
+Not only that, but to help improve the results further, the use of K-Fold cross validation was used which found the optimal parameters for this one part of the model. 
+
+When developing  the GP, only the 4 basic mathematical operators were used. These may not necessarily be the wrong operators to have used, but more operators such as \textit{sin, cos} and \textit{log} could have also been used. Through using these, it is possible that an optimal solution produced, whilst more complex, would also give a higher predictive accuracy on the hold out dataset.  Secondly, as a maximum depth limitation was not strictly enforced, after 1000 iterations, the GP started to become computationally expensive to keep running even thought learning had not finished. This meant that much larger solutions were constantly being checked, rather than smaller solutions which may have potentially had a better fitness. This effect of the trees getting very large very quickly is called \textit{bloat}. If there was a depth cap, then extremely large trees produced could have been removed to ensure that the performance was not affected. Finally, a possible reason that the GP did not perform as well as it could have is that since manual testing was performed to compute the best parameters, they may not have truly been the optimal parameters for the GP. This is something to consider as this was completed successfully for the ANN. \\
 
 
-%learning rate
-%time taken
-%training accuracy
-%testing accuracy
+As these models are relatively dissimilar, the number of comparisons that could be made between the two models had to be relatively generalised to the two models as a whole, rather than being able to compare very specific parts of each model. By comparing the performance of the models, it was clear that the ANN stayed consistent in the time it took to learn due to its fixed size, unlike the GP which slowed down exponentially. The ANN also gave a better predictive output as the benchmark, using the official data set, augmented through parameter optimisation. However, the predictive accuracy was not significantly greater than the GP, and through the use of methods such as KFCV, the predictive accuracy could possibly surpass the ANN. 
 %How do they stack up agsinst Altman?
 
-%varying parameters - much more flexible. 
-%changing the cuttoff point 
+\section{Reflection }
+\begin{comment}
 %limits  cause SO error
-%selection methods
+lit rev and spec:
+- Upon starting this project, the research that was completed was looking mainly at artificial neural networks 
+- there was not much information about using GP's for this particular problem however there was information about GP's for classification
+- overall i think that the research was relatively successful as it gave me a strong starting point about what to expect from this type of project
+- the research gave me a solid foundataion about what types of features to include in the making of the models
+- What i iked was the fact that GP's had not really been approached in this area to try to produce an optimal function
+- other types of GP's had. 
+%%
+design spec:
+-since I had an idea of what to do, using online research helped me to form the right type of spec
+-I felt that the specification was plentiful and realistic enough such that the project could be completed with the requirements met, whilst still profiving enough of a challenge that I had to spend time on it
+%%
+development:
+- fairly easy to make the ANN
+- sklearn provided all the neccessary features i needed to let this model be build
+- able to implement kfold xval easily
+- did this second
 
-%\newpage
-%\section{Comparisons of Artificial Neural Networks and Genetic Programs}
-%Both of the models that were created were able to be tested, to ensure that they both learned and were able to predict to a certain degree of accuracy whether a company was financially distressed or not. Other factors that could also be compared to determine which model was more efficient, performed faster, and which model produced a more intuitive solution. \\
-%talk about performance of each of them
-%compare against Altman
-% talk about accuracy of them
-% talk about what is better and why
- 
+- development was a challenge to begin with 
+- didnt think about usin ga proper data structure - though tusing lists of lists would work initially
+- spent too long tyring to convert infix to prefix myself, and then found a method that worked for me using the aid of aite
+- achieved sucess in converting everything into their correct formats
+- corssover was pinless, but mutation causes issues as although it was a point mutation , hard to describe how much to chenge the value by
+- genetic operators - could have implemented arity of 1 operators i think easily, if i had accounted for it from teh beginnign
+plannign tests was interesting as there could have been so many
+felt successful once the program started to acrually learn and give me resulsts i was looking for 
+felt sucess when unit teting was working and the white and blax box testing was performing as it was expected
+- was disappointed that the comparisons were rather limited although they are very different modesl
+-found it interesting to read and understand the results of the GP to make assessments about thwy the results occured
+- overall successful project
 
-
-\newpage
-\section{Critical assessment and Reflection }
-The aim of the project was to create and compare two models to determine if a company was likely to go bankrupt or not. Overall, both of the models were successful in being able to do this, however both gave different, but comparable results. 
-There are multiple factors that may have affected the overall classification accuracy for both models, which will be discussed here. \\
-
-Firstly, as part of the project specification, I chose to implement a feed-forward ANN. Since this model was used as a benchmark, being able to create the model was relatively uncomplicated and successful. The reason for this is because to execute the ANN model, there were only a few crucial components required to construct it, fit the data to the model, and use the trained model to test the predictive accuracy. In turn, this allowed me to exploit the library functionality to enable tests to be performed on this model. This included running the model once on a small static data set to determine if the model was in fact learning, before using the full data set to run the classification model. Once this was achieved, using the \textit{cross\textunderscore val\textunderscore score} functionality, I was then able to perform split the data into training and testing datasets using 10-Fold cross validation find the optimal number of nodes that would produce the best predictive accuracies. Through the testing completed, I was able to successfully return the optimal number of layers, and the optimal number of nodes required for all the layers. Through the 10-Fold cross validation, the optimal average predictive accuracy was also able to determined.
+\end{comment}
+\begin{comment}
+The reason for this is because to execute the ANN model, there were only a few crucial components required to construct it, fit the data to the model, and use the trained model to test the predictive accuracy. In turn, this allowed me to exploit the library functionality to enable tests to be performed on this model. This included running the model once on a small static data set to determine if the model was in fact learning, before using the full data set to run the classification model. Once this was achieved, using the \textit{cross\textunderscore val\textunderscore score} functionality, I was then able to perform split the data into training and testing datasets using 10-Fold cross validation find the optimal number of nodes that would produce the best predictive accuracies. Through the testing completed, I was able to successfully return the optimal number of layers, and the optimal number of nodes required for all the layers. Through the 10-Fold cross validation, the optimal average predictive accuracy was also able to determined.
 
 Due to the variety of parameters that could be applied to the \textit{MLPClassifer}, I was able to exceed the expectations of the ANN by being able to apply different activation functions and different learning functions that could be combined together to find the most appropriate methods used to make the ANN successful. This was not part of the project or the design specification, however, as these facilities were available, I was able to experiment with these. Using these enabled more experimentation to be performed than initially planned as these functions were already pre-built functions. 
 
 As part of the ANN model, even though it was not possible to produce an optimal function that a user could use, through the testing completed, I was able to compare the predictive accuracies of the ANN when a different number of ratios were inputted into the network. This was able to determine significance of each KPI, which was part of the original specification. Finally, by passing the outputs through a logistic function, it was able to produce a probability to represent the likelihood of failure. 
 
-Overall, after the ANN model was researched, designed and developed, I believe that this model was a good solution to this problem, and could be used to classify whether or not a company is likely to go bankrupt within one year. \\
 
 As part of the project specification, I chose to implement a genetic program, which would be able to produce an optimal function to predict corporate bankruptcy. Since this was completed without the use of any machine learning libraries, the development of this was more complicated, however by the end of the project, I was able to successfully produce an optimal function which was the main aim of the GP to approach this problem, as can be seen in section (?) 
 
@@ -472,7 +489,7 @@ Although I intended on using K-Fold cross validation for the GP in the project s
 %could change tree to have arity of 1s included 
 %restarted set of operators atm 
 %but this is how i could have done it
-
+\end{comment}
 
 \newpage
 \section{Future Work}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.11)  30 APR 2017 16:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.11)  30 APR 2017 22:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -613,12 +613,7 @@ File: learning_rates.png Graphic file (type png)
 Package pdftex.def Info: learning_rates.png used on input line 404.
 (pdftex.def)             Requested size: 252.49098pt x 196.03056pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 409--410
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 411--412
+Underfull \hbox (badness 10000) in paragraph at lines 409--412
 
  []
 
@@ -628,22 +623,22 @@ File: rocanngp.png Graphic file (type png)
 <use rocanngp.png>
 Package pdftex.def Info: rocanngp.png used on input line 416.
 (pdftex.def)             Requested size: 280.04556pt x 219.31883pt.
- [25 <./rocanngp.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 447--449
+
+Underfull \hbox (badness 10000) in paragraph at lines 413--421
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 456--457
-
- []
-
-[26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 490--491
+[25 <./rocanngp.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 426--427
 
  []
 
-[28] [29] (./testLatex.aux)
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 499--500
+
+ []
+
+[27] [28] (./testLatex.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -670,10 +665,10 @@ al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
 l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
 texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on testLatex.pdf (32 pages, 755739 bytes).
+Output written on testLatex.pdf (31 pages, 754394 bytes).
 PDF statistics:
- 180 PDF objects out of 1000 (max. 8388607)
- 113 compressed objects within 2 object streams
+ 177 PDF objects out of 1000 (max. 8388607)
+ 111 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

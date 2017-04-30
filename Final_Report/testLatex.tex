@@ -297,7 +297,7 @@ After implementing the classes and subroutines based on the design specification
 Within the \textit{train\textunderscore gp} function, the initial population was generated exactly once, and enters a while loop. The significance of this loop relates to one of the termination criteria - \textit{max\textunderscore iteration}. The model starts by evaluating the population once, and checks to see if an optimal solution already exists in the original population. If the original fitness is smaller than or equal to 133, then this has met the termination criteria as the this function would have at least 75\% training accuracy. The second termination criteria was met if the user defined maximum number of iterations are met. 
 
 Once the termination has been met, the optimal function was then returned and this function is used to test the predictive accuracy of hold out data to see if it is able to accurately classify the hold out sample data correctly. \\\\
-After executing this model multiple times, \textit{optFunc} and \textit{optFunc2} show examples of optimal functions that were produced, which gave 75\% and \% predictive accuracies on the hold out sets respectively. 
+After executing this model multiple times, \textit{optFunc} and \textit{optFunc2} show examples of optimal functions that were produced, which gave 75\% and \% predictive accuracies on the hold out sets respectively.  These two examples have been manually pruned to fit onto the page, as the functions were much larger. 
 \begin{align*}
 optFunc1=  35.400318494530815+(X3-X2-(673.1926*X2*X4^4*\\
 X5^2+8.7779947854)-25.99600428294065*X4^3*X5) = 75\%  accuracy
@@ -380,13 +380,45 @@ The first parameter that was changed when testing on the hold out data set was t
 \includegraphics[scale = .40]{thresh}
 \caption{Box and Whisker Plot to show different testing threshold values and their classification accuracies over 50 runs} 
 \end{figure}
-The next test performed was using different selection methods. As the selection type is also a parameter, this increased the flexibility of the model, as I was able to create another selection mechanism, \textit{select\textunderscore best} to train and test the model. This selection function selected the best two individuals in the population every single time. The expectation of this was that when training the model, it would plateau off as the fitness values would start to converge to a fitness value similar to the parents, therefore converging at a local optimal solution. This did occur as can be seen in Figure (?)  which compares the fitness errors of using tournament selection against select best. [insert figure here].
 
-Another parameter that could be tuned was the maximum number of iterations allowed before the model terminates. This involved using a variety of different max iteration values, to see if this made any difference to the predictive accuracies. In theory, if there were too few iterations, then the model would not be able to learn sufficiently. If there were too many iterations, then there is a possibility that learning would eventually stop, and that this would be very computationally expensive to try to find an optimal solution to this problem. The results of this can be seen in Figure (?) where when using 10 and 100 as the parameter values, the graph clearly indicated that learning was still occurring, however, after when the maximum iterations were 1000, 2000, 3000 , they showed signs of convergence, and eventually stopped learning as quickly. [insert figure here]. However, when using over 1000 members in the population, this showed signs of poor predictive  accuracy.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The next test performed was using different selection methods. As the selection type is also a parameter, this increased the flexibility of the model, as I was able to create another selection mechanism, \textit{select\textunderscore best} to train and test the model. This selection function selected the best two individuals in the population every single time. The expectation of this was that when training the model, it would plateau off as the fitness values would start to converge to a fitness value similar to the parents, therefore converging at a local optimal solution. This did occur as can be seen in Figure 6  which compares the best current fitness in the population when using tournament selection and select best. 
+\begin{figure}[h]
+\centering
+\includegraphics[scale = .40]{learning}
+\caption{Line graph showing different parent selection methods and their learning fitness values. } 
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Another parameter that could be tuned was the maximum number of iterations allowed before the model terminates. This involved using a variety of different maximum iteration values, to see if this made any difference to the predictive accuracies. In theory, if there were too few iterations, then the model would not be able to learn sufficiently. If there were too many iterations, then there is a possibility that learning would eventually stop, and that this would be very computationally expensive to try to find an optimal solution to this problem. Alternatively, learning would continue until an optimal function was found, however this posed the risk of the model overfitting the data. When using 10 and 100 as the parameter values, the graph (see Appendix (?)) clearly indicated that learning was still occurring, however, after when the maximum iterations were 1000, 2000, they showed signs of convergence, and eventually stopped learning as quickly. Although it may look like the model was no longer learning at all, it never truly will stop learning, until the termination criteria were met.
 
-\subsection{Comparisons of Artificial Neural Networks and Genetic Programs}
-Using the two models, these could both be tested individually as above, against each other and against other bench mark tests such as the predictive accuracies that Altman was able to achieve. 
-Through testing both models that were made, I tuned the parameters such that the optimal parameters that gave the best results from each model could be compared. 
+Through the use of software testing, using methods such as white and black box testing, both the models made were successful and were able to predict whether a company would be likely to go bankrupt or not within one year. By using software testing, it enabled me to ensure that the models made were learning correctly. Through experimentation, this enabled me to determine more optimised parameters for both models which could be used to then compare the models against each other. To make both models more user friendly, the configuration files were used to alter the parameters, which was a form of user acceptance testing. This was if a user wants to use both models, they should not have to use have to alter any code as it is unnecessary. to Due to space limitations, I have mentioned some of the test that were performed to tune the parameter of the model. To view the rest of the tests that were completed, they can be found in Appendix (?) .
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{ANN and GP Comparisons}
+As part of the project, another aspect was to compare the developed two models to determine how well the GP performed against the ANN, in terms of time to find a solution, predictive accuracy and readability. \\
+
+Firstly, I chose to compare the average time that it took the ANN and GP to train the model and test its predictive accuracy. To compare the two models, I used a line graph as this was a clear way to represent the comparisons.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = .45]{learning_rates}
+\caption{Graph to show the learning rate over time seconds} 
+\end{figure}
+Since the ANN is a fixed sized model, it was expected that the time to perform 1000 epochs to learn the model would remain relatively constant, as the size of the network never changes. 
+
+The GP starts off at the same learning rate as the ANN, however after approximately 200 epochs, the time taken to learn starts to increase exponentially. By 1000 iterations, it takes approximately 120 seconds to run one iteration of the GP. When increasing the maximum iteration limit even further, the ANN times stayed relatively constant, however the GP time took even longer.  A possible reason for this is that smaller expressions with smaller trees can be evaluated much faster, as there less computation is required to perform searching and evaluation. However as the trees undergo processes such as crossover, the new children trees can become much larger very quickly. In turn more recursion is required to search and evaluate the children produced which would increase the time to run one epoch. By 1000 iterations, the trees may have become exceedingly large, which means running one epoch will take significantly longer than when the population initially started. \\
+
+Another comparison that could be made was the readability between the two different models. One of the issues with ANNs is idea that it is known as a ``black box" model. Although it is possible to look inside the model whilst it is learning, it is very difficult to understand exactly what is being changed within the network and how it is learning. Therefore studying the ANN structure can be very challenging. However, this is not the case with the GP. Whilst the GP is learning, since the individuals are mathematical expressions, tracking every single stage of the GP from start to finish is possible. This means that should someone want to look into the model whilst it is training, the expressions being selected, crossed over and mutated can be viewed. As a result, when the final solution is obtained, a readable function is produced and the user will know exactly how this solution has developed based on the starting population. \\
+
+Finally, I also decided to compare the predictive accuracies of both models, based on their respective optimal parameters. Through out the testing stage, I made hypothesised that the ANN would outperform the GP in terms of predictive accuracy. To represent both results, an ROC curve was used. This  determined how likely the results produced were due to chance. 
+\begin{figure}[h]
+\centering
+\includegraphics[scale = .50]{rocanngp}
+\caption{ROC curve comparing the performance of ANN and GP. The Area Under Curve (AUC)  evaluates the performance of a classifier, where a probability of 1 is the optimal under the curve for a perfect classifier. Red dashed line signifies total randomness as a benchmark at 0.5.  } 
+\end{figure}
+
+Looking at Figure 8, the ROC curve compares the ANN and GP true and false positive rates. The ROC shows that the area under the curve for the ANN and GP were 0.84 and 0.77 respectively, indicating that the both classification models produced relatively strong models. In terms of their predictive accuracy, the ANN on average was closer to the optimal area under the curve indicating that on average, using the testing dataset, it was able to classify 84\% of the companies into the correct classifications, and 77\% foe the GP. 
+%To compare the predictive accuracies of both models, an ROC was made. This was used to determine how likely the results produced were due to chance. Secondly this curve helped to determine which model produced a better predictive accuracy. Using the difference between the predictive accuracies in both models, it could then be determined if one models predictive power was significantly better than the other. 
 
 
 %learning rate
@@ -403,16 +435,6 @@ Through testing both models that were made, I tuned the parameters such that the
 %\newpage
 %\section{Comparisons of Artificial Neural Networks and Genetic Programs}
 %Both of the models that were created were able to be tested, to ensure that they both learned and were able to predict to a certain degree of accuracy whether a company was financially distressed or not. Other factors that could also be compared to determine which model was more efficient, performed faster, and which model produced a more intuitive solution. \\
-
-%When the genetic program starts learning, the initial generation depth is relatively small. As the model begins to learn, the size and depth of the trees tends to increase which leads to an increase in computation time for getting the fitness of a larger tree and searching through the trees for cross over and mutation to create new children. Figure (?) shows an example of such a run over 1000 iterations, with the aim of trying to find an optimal solution within the search space. Between  0 and 200 iterations, the computation time remains relatively minimal as none of the trees are large, they can easily be searched and can be evaluated rapidly. Once the trees start growing relatively large, fewer iterations are needed for the computation time to start increasing exponentially. Eventually, after running for 1100 iterations and the optimal solution has still not been found, the process of creating more optimal children increases to approximately 120 seconds. 
-%\begin{figure}[h]
-%\centering
-%\includegraphics[scale = .40]{learn}
-%\caption{Graph to show the learning rate over time seconds} 
-%\end{figure}
-%learning rate slows down as trees get bigger
-%ANN stays the same size but works slower in general
-% 
 %talk about performance of each of them
 %compare against Altman
 % talk about accuracy of them

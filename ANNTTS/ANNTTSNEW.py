@@ -162,6 +162,8 @@ def run(data_set, config_file, show_graph=False, boxplt=False, roc=False):
         if i % 100 == 0:
             sys.stdout.write("iteration: " + str(i) + "\n")
 
+    print("times: ", times)
+
     if show_graph == True and roc == True:
         False_Positive_Rate, True_Positive_Rate, _ = metrics.roc_curve(y_test, predsTESTING)
         df = pd.DataFrame(dict(fpr=False_Positive_Rate, tpr=True_Positive_Rate))
@@ -178,6 +180,8 @@ def run(data_set, config_file, show_graph=False, boxplt=False, roc=False):
         plt.legend(loc="best")
         plt.xlabel("Number of Iterations")
         plt.ylabel("Time taken (s)")
+        plt.xlim([0.0, 1.05])
+        plt.ylim([0.0, 1.05])
         plt.show()
         plt.plot(list(range(len(accuracies))), accuracies, "b", label="predictive accuracies over 2000 iterations")
         plt.legend(loc="best")

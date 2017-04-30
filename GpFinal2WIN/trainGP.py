@@ -113,6 +113,9 @@ def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iter
                 loop_break = True
 
             if loop_break is True:
+                print("in here my dude!")
+                print("y valsssss")
+                print(y_val)
                 return population[index], x_test, y_test, y_val, timer
 
         if x % 10 == 0:

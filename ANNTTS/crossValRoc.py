@@ -82,6 +82,7 @@ if __name__=="__main__":
 	labels = x[1]
 	# optimal nodes taken from 
 	opt_func1 = K_fold_optimal_model2(data,labels,10,(49))
+	print(opt_func1)
 	opt_func2 = K_fold_optimal_model2(data,labels,10,(36,36))
 	opt_func3 = K_fold_optimal_model2(data,labels,10,(37,37,37))
 

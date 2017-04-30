@@ -15,12 +15,12 @@ def run_gp(data_set, thresh=0.5):
     timer = list()
     start_time = timeit.default_timer()
 
-    for i in range(5):
+    for i in range(2):
         elapse = timeit.default_timer() - start_time
         timer.append(elapse)
-        optimal_expression = train_gp(data_set=data_set, gen_depth=3,
-                                      population_size=500, max_iteration=1000, selection_type="select_best",
-                                      tournament_size=40, cross_over_rate=0.1, mutation_rate=0.99, thresh=thresh)
+        optimal_expression = train_gp(data_set=data_set, gen_depth=4,
+                                      population_size=500, max_iteration=1000, selection_type="tournament",
+                                      tournament_size=40, cross_over_rate=0.3, mutation_rate=0.99, thresh=thresh)
 
         opt_exp = optimal_expression[0]
         row = optimal_expression[1]
@@ -28,7 +28,7 @@ def run_gp(data_set, thresh=0.5):
         # print("training times")
         training_time = optimal_expression[4]
         # print(training_time)
-        training_fitnesses =  optimal_expression[3]
+        training_fitnesses = optimal_expression[3]
 
         print(training_fitnesses)
         exp = list()
@@ -58,7 +58,6 @@ def run_gp(data_set, thresh=0.5):
         for i in prediction:
             for j in i:
                 try:
-
                     sig = 1 / (1 + math.exp(-j))
                 except OverflowError:
                     sig = 0
@@ -87,15 +86,30 @@ def run_gp(data_set, thresh=0.5):
     save_file.close()
     # print("time taken over n runs")
     # print(timer)
-    return label, prob
+    return label, err
 
-def draw_ROC(label, err):
+
+def draw_roc(label, err):
     from sklearn.metrics import roc_curve, auc
     import matplotlib.pyplot as plt
     actual = label
     predictions = err
+    print(actual)
+    print(err)
     false_positive_rate, true_positive_rate, thresholds = roc_curve(actual, predictions)
+    print()
+    print()
+    print()
+    print(false_positive_rate)
+    print()
+    print()
+    print(true_positive_rate)
+
     roc_auc = auc(false_positive_rate, true_positive_rate)
+    print()
+    print()
+    print()
+    print(roc_auc)
     plt.title('Receiver Operating Characteristic')
     plt.plot(false_positive_rate, true_positive_rate, 'b',
              label='AUC = %0.2f' % roc_auc)
@@ -110,7 +124,7 @@ def draw_ROC(label, err):
 
 if __name__ == "__main__":
     clasifier = run_gp('dataset2.txt')
-    draw_ROC(clasifier[0], clasifier[1])
+    draw_roc(clasifier[0], clasifier[1])
 
 
 

@@ -1,0 +1,73 @@
+\begin{thebibliography}{xx}
+
+\harvarditem{Altman}{1968}{ref-six}
+Altman, E.  \harvardyearleft 1968\harvardyearright , Financial ratios,
+  discriminant analysis and the prediction of corporate bankruptcy, {\em in}
+  `The Journal of Finance', Vol.~23, pp.~589--609.
+
+\harvarditem[Back et~al.]{Back, Laitinen \harvardand\ Sere}{1996}{ref-thirt}
+Back, B., Laitinen, T. \harvardand\ Sere, K.  \harvardyearleft
+  1996\harvardyearright , Neural networks and genetic algorithms for bankruptcy
+  predictions, {\em in} `Expert Systems with Applications', Vol.~11,
+  pp.~407--413.
+
+\harvarditem[Baetge et~al.]{Baetge, Huss \harvardand\ Niehaus}{1988}{ref-three}
+Baetge, J., Huss, M. \harvardand\ Niehaus, H.  \harvardyearleft
+  1988\harvardyearright , The use of statistical analysis to identify the
+  financial strength of corporations in germany, {\em in} `Studies in Banking
+  and Finance', Vol.~7, pp.~183--196.
+
+\harvarditem[Bakar et~al.]{Bakar, Kiong \harvardand\ Nassir}{2012}{ref-one}
+Bakar, S., Kiong, I. T.~W. \harvardand\ Nassir, A.~M.  \harvardyearleft
+  2012\harvardyearright , Examining and validating a bankruptcy prediction
+  models in malaysia, {\em in} `nternational Conference on Statistics in
+  Science, Business and Engineering (ICSSBE)'.
+
+\harvarditem{Barcena \harvardand\ Marin}{2010}{ref-four}
+Barcena, D. \harvardand\ Marin, A.  \harvardyearleft 2010\harvardyearright ,
+  Modeling logic and neural approaches to bankruptcy prediction models, {\em
+  in} IEEE, ed., `World Automation Congress (WAC)'.
+
+\harvarditem{Beaver}{1966}{ref-two}
+Beaver, W.  \harvardyearleft 1966\harvardyearright , Financial ratios as
+  predictors of failure, {\em in} `Journal of Accounting Research'.
+
+\harvarditem[Etemadi et~al.]{Etemadi, Rostamy \harvardand\
+  Dehkordi}{2009}{ref-twelve}
+Etemadi, H., Rostamy, A.~A. \harvardand\ Dehkordi, H.  \harvardyearleft
+  2009\harvardyearright , A genetic programming model for bankruptcy
+  prediction: Empirical evidence from iran, {\em in} `Expert Systems with
+  Applications', Vol.~36, pp.~3199--3207.
+
+\harvarditem{Institute}{2017}{ref-five}
+Institute, A.~B.  \harvardyearleft 2017\harvardyearright , `Bankruptcy
+  statistics'.
+\newline\harvardurl{http://www.abi.org/newsroom/bankruptcy-statistics}
+
+\harvarditem{Lee}{2006}{ref-eleven}
+Lee, W.  \harvardyearleft 2006\harvardyearright , Genetic programming decision
+  tree for bankruptcy prediction, {\em in} `Proceedings of the 9th Joint
+  Conference on Information Sciences (JCIS)'.
+
+\harvarditem[Lensberg et~al.]{Lensberg, Eilifsena \harvardand\
+  McKee}{2016}{ref-ten}
+Lensberg, T., Eilifsena, A. \harvardand\ McKee, T.  \harvardyearleft
+  2016\harvardyearright , Bankruptcy theory development and classification via
+  genetic programming, {\em in} `European Journal of Operational Research',
+  Vol. 169, pp.~677--697.
+
+\harvarditem{Lippmann}{1987}{ref-seven}
+Lippmann, R.  \harvardyearleft 1987\harvardyearright , An introduction to
+  computing with neural nets, {\em in} `IEEE ASSP Magazine', Vol.~4, pp.~4--22.
+
+\harvarditem{Ohlson}{1980}{ref-eight}
+Ohlson, J.  \harvardyearleft 1980\harvardyearright , Financial ratios and the
+  probabilistic prediction of bankruptcy, {\em in} `Journal of Accounting
+  Research'.
+
+\harvarditem{Wilson \harvardand\ Sharda}{1994}{ref-nine}
+Wilson, R. \harvardand\ Sharda, R.  \harvardyearleft 1994\harvardyearright ,
+  Bankruptcy prediction using neural networks, {\em in} `Decision Support
+  Systems', Vol.~11, pp.~545--557.
+
+\end{thebibliography}

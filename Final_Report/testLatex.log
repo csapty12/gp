@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.11)  30 APR 2017 22:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.11)  1 MAY 2017 23:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -259,27 +259,34 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 )
 \c@ContinuedFloat=\count104
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip55
+\bibsep=\skip56
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count105
+)
 (./testLatex.aux)
 \openout1 = `testLatex.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 12.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    ... okay on input line 12.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -316,16 +323,16 @@ LaTeX Font Info:    ... okay on input line 11.
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count105
+\scratchcounter=\count106
 \scratchdimen=\dimen129
 \scratchbox=\box28
-\nofMPsegments=\count106
-\nofMParguments=\count107
+\nofMPsegments=\count107
+\nofMParguments=\count108
 \everyMPshowfont=\toks23
-\MPscratchCnt=\count108
+\MPscratchCnt=\count109
 \MPscratchDim=\dimen130
-\MPnumerator=\count109
-\makeMPintoPDFobject=\count110
+\MPnumerator=\count110
+\makeMPintoPDFobject=\count111
 \everyMPtoPDFconversion=\toks24
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
@@ -377,298 +384,213 @@ Package caption Info: End \AtBeginDocument code.
 [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./testLatex.toc
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[1])
+[1] [2
+
+] (./testLatex.toc [3
+
+])
 \tf@toc=\write3
 \openout3 = `testLatex.toc'.
 
- [2]
-
-LaTeX Warning: Citation `?' on page 1 undefined on input line 33.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 35--37
+ [4]
+Underfull \hbox (badness 10000) in paragraph at lines 43--45
 
  []
-
-
-LaTeX Warning: Citation `?' on page 1 undefined on input line 43.
-
-
-LaTeX Warning: Citation `?' on page 1 undefined on input line 46.
-
-
-LaTeX Warning: Citation `?' on page 1 undefined on input line 49.
-
-
-LaTeX Warning: Citation `?' on page 1 undefined on input line 49.
 
 [1
 
 ]
-
-LaTeX Warning: Citation `?' on page 2 undefined on input line 51.
-
-
-LaTeX Warning: Citation `?' on page 2 undefined on input line 60.
-
-
-LaTeX Warning: Citation `?' on page 2 undefined on input line 62.
-
-
-LaTeX Warning: Citation `?' on page 2 undefined on input line 67.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 67--69
+Underfull \hbox (badness 10000) in paragraph at lines 74--76
 
  []
 
-[2]
-
-LaTeX Warning: Citation `?' on page 3 undefined on input line 74.
-
-
-LaTeX Warning: Citation `?' on page 3 undefined on input line 82.
-
-
-LaTeX Warning: Citation `?' on page 3 undefined on input line 82.
-
-
-LaTeX Warning: Citation `?' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `?' on page 3 undefined on input line 83.
-
-
-LaTeX Warning: Citation `?' on page 3 undefined on input line 85.
-
-
-LaTeX Warning: Citation `?' on page 3 undefined on input line 86.
-
-
-LaTeX Warning: Citation `?' on page 3 undefined on input line 86.
-
-[3]
-
-LaTeX Warning: Citation `?' on page 4 undefined on input line 88.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
-
- []
-
-
-LaTeX Warning: Citation `?' on page 4 undefined on input line 90.
-
-
-LaTeX Warning: Citation `'''' on page 4 undefined on input line 90.
-
-
-LaTeX Warning: Citation `?' on page 4 undefined on input line 90.
-
-
+[2] [3]
 Underfull \hbox (badness 10000) in paragraph at lines 93--94
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
 
  []
 
 [4] [5]
 
-LaTeX Warning: Citation `?' on page 6 undefined on input line 132.
+Package natbib Warning: Citation `?' on page 6 undefined on input line 137.
 
-<ANN.png, id=35, 797.98125pt x 378.41376pt>
+<ANN.png, id=41, 797.98125pt x 378.41376pt>
 File: ANN.png Graphic file (type png)
  <use ANN.png>
-Package pdftex.def Info: ANN.png used on input line 137.
+Package pdftex.def Info: ANN.png used on input line 142.
 (pdftex.def)             Requested size: 295.24843pt x 140.0109pt.
-
-
-LaTeX Warning: Citation `?' on page 6 undefined on input line 140.
-
-[6 <./ANN.png>]
-
-LaTeX Warning: Citation `?' on page 7 undefined on input line 149.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 155--157
+ [6 <./ANN.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 160--162
 
  []
 
-<GPFlowReformat.png, id=41, 764.8575pt x 757.83125pt>
+<GPFlowReformat.png, id=47, 764.8575pt x 757.83125pt>
 File: GPFlowReformat.png Graphic file (type png)
  <use GPFlowReformat.png>
-Package pdftex.def Info: GPFlowReformat.png used on input line 160.
+Package pdftex.def Info: GPFlowReformat.png used on input line 165.
 (pdftex.def)             Requested size: 420.67291pt x 416.80847pt.
 
-[7] [8 <./GPFlowReformat.png>] <binaryT.png, id=52, 742.775pt x 322.20375pt>
+[7] [8 <./GPFlowReformat.png>] <binaryT.png, id=59, 742.775pt x 322.20375pt>
 File: binaryT.png Graphic file (type png)
 
 <use binaryT.png>
-Package pdftex.def Info: binaryT.png used on input line 176.
+Package pdftex.def Info: binaryT.png used on input line 181.
 (pdftex.def)             Requested size: 297.10474pt x 128.87921pt.
-
-
-LaTeX Warning: Citation `?' on page 9 undefined on input line 181.
-
-
-LaTeX Warning: Citation `?' on page 9 undefined on input line 181.
-
-[9 <./binaryT.png>]
-
-LaTeX Warning: Citation `?' on page 10 undefined on input line 185.
-
-
-LaTeX Warning: Citation `?' on page 10 undefined on input line 188.
-
-[10] [11] [12]
-
-LaTeX Warning: Citation `?' on page 13 undefined on input line 238.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 236--242
+ [9 <./binaryT.png>] [10] [11] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 241--247
 
  []
 
-[13]
-
-LaTeX Warning: Citation `?' on page 14 undefined on input line 249.
-
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 270--273
+[13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 275--278
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 278--279
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 280--281
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 290--291
+Underfull \hbox (badness 10000) in paragraph at lines 295--296
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 299--301
+Underfull \hbox (badness 10000) in paragraph at lines 304--306
 
  []
 
-
-LaTeX Warning: Citation `?' on page 18 undefined on input line 318.
-
-[18] <reduc.png, id=89, 563.10374pt x 419.5675pt>
+[18] <reduc.png, id=95, 563.10374pt x 419.5675pt>
 File: reduc.png Graphic file (type png)
  <use reduc.png>
-Package pdftex.def Info: reduc.png used on input line 337.
+Package pdftex.def Info: reduc.png used on input line 342.
 (pdftex.def)             Requested size: 225.2375pt x 167.82402pt.
 
-<roc1.png, id=90, 584.1825pt x 438.63875pt>
+<roc1.png, id=96, 584.1825pt x 438.63875pt>
 File: roc1.png Graphic file (type png)
  <use roc1.png>
-Package pdftex.def Info: roc1.png used on input line 338.
+Package pdftex.def Info: roc1.png used on input line 343.
 (pdftex.def)             Requested size: 233.66885pt x 175.45238pt.
  [19] [20 <./reduc.png> <./roc1.png>] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 374--376
+Underfull \hbox (badness 10000) in paragraph at lines 379--381
 
  []
 
-<thresh.png, id=102, 594.22pt x 442.65375pt>
+<thresh.png, id=109, 594.22pt x 442.65375pt>
 File: thresh.png Graphic file (type png)
  <use thresh.png>
-Package pdftex.def Info: thresh.png used on input line 380.
+Package pdftex.def Info: thresh.png used on input line 385.
 (pdftex.def)             Requested size: 237.68379pt x 177.05835pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<learning.png, id=103, 559.08875pt x 416.55624pt>
+<learning.png, id=110, 559.08875pt x 416.55624pt>
 File: learning.png Graphic file (type png)
  <use learning.png>
-Package pdftex.def Info: learning.png used on input line 388.
+Package pdftex.def Info: learning.png used on input line 393.
 (pdftex.def)             Requested size: 223.63153pt x 166.61954pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 397--398
+[22] [23 <./thresh.png> <./learning.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 402--403
 
  []
 
-[23 <./thresh.png> <./learning.png>]
-<learning_rates.png, id=113, 561.09625pt x 435.6275pt>
+<learning_rates.png, id=119, 561.09625pt x 435.6275pt>
 File: learning_rates.png Graphic file (type png)
 
 <use learning_rates.png>
-Package pdftex.def Info: learning_rates.png used on input line 404.
+Package pdftex.def Info: learning_rates.png used on input line 409.
 (pdftex.def)             Requested size: 252.49098pt x 196.03056pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 409--412
+Underfull \hbox (badness 10000) in paragraph at lines 414--417
 
  []
 
-[24 <./learning_rates.png>] <rocanngp.png, id=118, 560.0925pt x 438.63875pt>
+[24 <./learning_rates.png>] <rocanngp.png, id=124, 560.0925pt x 438.63875pt>
 File: rocanngp.png Graphic file (type png)
 
 <use rocanngp.png>
-Package pdftex.def Info: rocanngp.png used on input line 416.
+Package pdftex.def Info: rocanngp.png used on input line 421.
 (pdftex.def)             Requested size: 280.04556pt x 219.31883pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--421
+Underfull \hbox (badness 10000) in paragraph at lines 418--426
 
  []
 
 [25 <./rocanngp.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 426--427
+Underfull \hbox (badness 10000) in paragraph at lines 431--432
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 499--500
+Underfull \hbox (badness 10000) in paragraph at lines 443--445
 
  []
 
-[27] [28] (./testLatex.aux)
 
-LaTeX Warning: There were undefined references.
+Underfull \hbox (badness 10000) in paragraph at lines 450--451
 
- ) 
+ []
+
+[27] [28]
+Underfull \hbox (badness 10000) in paragraph at lines 466--467
+
+ []
+
+[29] (./testLatex.bbl)
+
+Package natbib Warning: There were undefined citations.
+
+[30
+
+] [31] (./testLatex.aux) ) 
 Here is how much of TeX's memory you used:
- 4506 strings out of 493014
- 66931 string characters out of 6133351
- 236744 words of memory out of 5000000
- 7987 multiletter control sequences out of 15000+600000
+ 4933 strings out of 493014
+ 72369 string characters out of 6133351
+ 243724 words of memory out of 5000000
+ 8407 multiletter control sequences out of 15000+600000
  11178 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,43p,1462b,291s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
-}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/loc
-al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
-texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on testLatex.pdf (31 pages, 754394 bytes).
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/c
+m-super/cm-super-ts1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmbxti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsl10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm
+1095.pfb>
+Output written on testLatex.pdf (36 pages, 766409 bytes).
 PDF statistics:
- 177 PDF objects out of 1000 (max. 8388607)
- 111 compressed objects within 2 object streams
+ 192 PDF objects out of 1000 (max. 8388607)
+ 121 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

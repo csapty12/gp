@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: testLatex.aux
+The style file: agsm.bst
+Database file #1: /Users/carlsaptarshi/Desktop/gp/gp/references/refs.bib.bib
+Warning--entry type for "ref-absk" isn't style-file defined
+--line 11 of file /Users/carlsaptarshi/Desktop/gp/gp/references/refs.bib.bib
+Warning--entry type for "ref-pre" isn't style-file defined
+--line 27 of file /Users/carlsaptarshi/Desktop/gp/gp/references/refs.bib.bib
+Warning--entry type for "ref-five" isn't style-file defined
+--line 129 of file /Users/carlsaptarshi/Desktop/gp/gp/references/refs.bib.bib
+Warning--I didn't find a database entry for "?"
+You've used 18 entries,
+            2909 wiz_defined-function locations,
+            736 strings with 7133 characters,
+and the built_in function-call counts, 57705 in all, are:
+= -- 9168
+> -- 822
+< -- 8
++ -- 4240
+- -- 246
+* -- 4757
+:= -- 11783
+add.period$ -- 18
+call.type$ -- 18
+change.case$ -- 245
+chr.to.int$ -- 18
+cite$ -- 18
+duplicate$ -- 341
+empty$ -- 651
+format.name$ -- 295
+if$ -- 10460
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 16
+newline$ -- 60
+num.names$ -- 179
+pop$ -- 143
+preamble$ -- 1
+purify$ -- 265
+quote$ -- 0
+skip$ -- 287
+stack$ -- 0
+substring$ -- 12638
+swap$ -- 80
+text.length$ -- 250
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 70
+warning$ -- 0
+while$ -- 377
+width$ -- 0
+write$ -- 246
+(There were 4 warnings)

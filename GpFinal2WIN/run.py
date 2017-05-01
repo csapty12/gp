@@ -15,7 +15,7 @@ def run_gp(data_set, thresh=0.5):
     timer = list()
     start_time = timeit.default_timer()
 
-    for i in range(2):
+    for i in range(10):
         elapse = timeit.default_timer() - start_time
         timer.append(elapse)
         optimal_expression = train_gp(data_set=data_set, gen_depth=4,
@@ -30,7 +30,7 @@ def run_gp(data_set, thresh=0.5):
         # print(training_time)
         training_fitnesses = optimal_expression[3]
 
-        print(training_fitnesses)
+        # print(training_fitnesses)
         exp = list()
         exp.append(opt_exp)
         optimal_expression = exp
@@ -72,10 +72,10 @@ def run_gp(data_set, thresh=0.5):
         # true false array to compare the predicted values against the actual class labels.
         trufa = prob == label
         ls = sum(trufa) / len(trufa)
-        print("accuracy: ", ls)
+        # print("accuracy: ", ls)
         accs.append(ls)
-    print("accs")
-    print(accs)
+    # print("accs")
+    # print(accs)
 
     save_file = open("./out.txt", 'a')
     for i in accs:

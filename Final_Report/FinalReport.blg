@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: FinalReport.aux
+The style file: agsm.bst
+Database file #1: /Users/carlsaptarshi/Desktop/gp/gp/references/refs.bib.bib
+Warning--entry type for "ref-five" isn't style-file defined
+--line 96 of file /Users/carlsaptarshi/Desktop/gp/gp/references/refs.bib.bib
+You've used 13 entries,
+            2909 wiz_defined-function locations,
+            714 strings with 6584 characters,
+and the built_in function-call counts, 42042 in all, are:
+= -- 6644
+> -- 592
+< -- 7
++ -- 3051
+- -- 176
+* -- 3443
+:= -- 8597
+add.period$ -- 13
+call.type$ -- 13
+change.case$ -- 182
+chr.to.int$ -- 13
+cite$ -- 13
+duplicate$ -- 269
+empty$ -- 513
+format.name$ -- 215
+if$ -- 7637
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 12
+newline$ -- 43
+num.names$ -- 137
+pop$ -- 98
+preamble$ -- 1
+purify$ -- 195
+quote$ -- 0
+skip$ -- 231
+stack$ -- 0
+substring$ -- 9156
+swap$ -- 74
+text.length$ -- 189
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 52
+warning$ -- 0
+while$ -- 289
+width$ -- 0
+write$ -- 182
+(There was 1 warning)

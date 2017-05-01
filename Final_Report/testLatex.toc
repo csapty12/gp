@@ -1,3 +1,5 @@
+\contentsline {section}{\hbox to\@tempdima {\hfil }Abstract}{i}
+\contentsline {section}{\hbox to\@tempdima {\hfil }Acknowledgements}{ii}
 \contentsline {section}{\numberline {1}Background and Introduction }{1}
 \contentsline {subsection}{\numberline {1.1}Background into Bankruptcy}{1}
 \contentsline {subsubsection}{\numberline {1.1.1}What is Bankruptcy}{1}
@@ -35,11 +37,10 @@
 \contentsline {subsubsection}{\numberline {4.2.8}Termination and Running}{17}
 \contentsline {section}{\numberline {5}Testing, Results and Comparisons}{18}
 \contentsline {subsection}{\numberline {5.1}Testing and Results}{18}
-\contentsline {subsubsection}{\numberline {5.1.1}Code functionality \& Parameter Tuning: Artificial Neural Network}{18}
+\contentsline {subsubsection}{\numberline {5.1.1}Code Functionality and Parameter Tuning: Artificial Neural Network}{18}
 \contentsline {subsubsection}{\numberline {5.1.2}Software Testing: Genetic Program}{20}
 \contentsline {subsubsection}{\numberline {5.1.3}Running the Genetic Program - Training and Testing datasets}{21}
 \contentsline {subsubsection}{\numberline {5.1.4}Genetic Program Experiments}{22}
 \contentsline {subsection}{\numberline {5.2}ANN and GP Comparisons}{24}
-\contentsline {section}{\numberline {6}Reflection }{26}
-\contentsline {section}{\numberline {7}Future Work}{27}
-\contentsline {section}{\numberline {8}Conclusion}{28}
+\contentsline {section}{\numberline {6}Reflection}{26}
+\contentsline {section}{\numberline {7}Future Work and Conclusions}{28}

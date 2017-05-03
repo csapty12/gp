@@ -1,6 +1,8 @@
 from trainGP import train_gp, train_gp_verbose
 from data import Data
 import timeit
+import os.path
+import configparser
 
 
 def gp_full_data(test_dataset):
@@ -9,7 +11,80 @@ def gp_full_data(test_dataset):
     return x[0], x[1]
 
 
-def run_gp(data_set, thresh=0.5, verbose=False):
+def make_config():
+    """
+    If a configuration file does not exist, then create a default one with default parameters.
+    :return: the configuration file
+    """
+    config = configparser.ConfigParser()
+    config['DEFAULT_GP'] = {
+        'data_set': './dataset2.txt',
+        'generation_depth': '4',
+        'population_size': '500',
+        'max_iteration': '1000',
+        'selection_type': 'tournament',
+        'tournament_size': '40',
+        'cross_over_rate': '0.1',
+        'mutation_rate': '0.9',
+        'classifier_threshold': '0.5',
+        'num_hits_thresh': '130',
+        'debug_mode': 'False',
+
+    }
+    with open('configGP.ini', 'w') as configfile:
+        config.write(configfile)
+
+
+def read_config_file(file):
+    """
+    function to read the configuration file which takes the parameters and is used to train and test the ANN.
+    :param file: the configuration file
+    :return: the configuration parameters.
+    """
+    config = configparser.ConfigParser()
+    config.read(file)
+    params = list()
+    # get the key values for each parameter
+    data_set = config['DEFAULT_GP']['data_set']
+    generation_depth = config['DEFAULT_GP']['generation_depth']
+    population_size = config['DEFAULT_GP']['population_size']
+    max_iteration = config['DEFAULT_GP']['max_iteration']
+    selection_type = config['DEFAULT_GP']["selection_type"]
+    tournament_size = config['DEFAULT_GP']["tournament_size"]
+    cross_over_rate = config['DEFAULT_GP']["cross_over_rate"]
+    muataion_rate = config['DEFAULT_GP']["mutation_rate"]
+    classifier_threshold = config['DEFAULT_GP']["classifier_threshold"]
+    num_hit_threshold = config['DEFAULT_GP']["num_hits_thresh"]
+    debug_mode = config['DEFAULT_GP']["debug_mode"]
+
+    params.append(data_set)
+    params.append(generation_depth)
+    params.append(population_size)
+    params.append(max_iteration)
+    params.append(selection_type)
+    params.append(tournament_size)
+    params.append(cross_over_rate)
+    params.append(muataion_rate)
+    params.append(classifier_threshold)
+    params.append(debug_mode)
+    params.append(num_hit_threshold)
+    print("paramsssss")
+    print(params)
+    return params
+
+
+def run_gp(config_file):
+    data_set = config_file[0]
+    init_depth = int(config_file[1])
+    pop_size = int(config_file[2])
+    max_iter = int(config_file[3])
+    sel_type = config_file[4]
+    tourn_size = int(config_file[5])
+    x_over_rate = float(config_file[6])
+    mut_rate = float(config_file[7])
+    thresh = float(config_file[8])
+    verbose = config_file[9]
+    num_hits = int(config_file[10])
     import math
     accs = list()
     timer = list()
@@ -18,15 +93,19 @@ def run_gp(data_set, thresh=0.5, verbose=False):
     for i in range(1):
         elapse = timeit.default_timer() - start_time
         timer.append(elapse)
-        if verbose is False:
-            optimal_expression = train_gp(data_set=data_set, gen_depth=4,
-                                          population_size=500, max_iteration=2, selection_type="tournament",
-                                          tournament_size=40, cross_over_rate=0.99, mutation_rate=0.99, thresh=thresh)
-        elif verbose is True:
-            optimal_expression = train_gp_verbose(data_set=data_set, gen_depth=4,
-                                                  population_size=500, max_iteration=2, selection_type="tournament",
-                                                  tournament_size=40, cross_over_rate=0.99, mutation_rate=0.99,
-                                                  thresh=thresh)
+        if verbose == "False":
+            optimal_expression = train_gp(data_set=data_set, gen_depth=init_depth,
+                                          population_size=pop_size, max_iteration=max_iter, selection_type=sel_type,
+                                          tournament_size=tourn_size, cross_over_rate=x_over_rate,
+                                          mutation_rate=mut_rate, thresh=thresh, number_hits = num_hits)
+        elif verbose == "True":
+            optimal_expression = train_gp_verbose(data_set=data_set, gen_depth=init_depth,
+                                                  population_size=pop_size, max_iteration=max_iter,
+
+                                                  selection_type=sel_type,
+                                                  tournament_size=tourn_size, cross_over_rate=x_over_rate,
+                                                  mutation_rate=mut_rate,
+                                                  thresh=thresh, number_hits = num_hits)
 
         opt_exp = optimal_expression[0]
         row = optimal_expression[1]
@@ -123,9 +202,13 @@ def draw_roc(label, err):
 
 
 if __name__ == "__main__":
-    clasifier = run_gp('dataset2.txt', verbose=True)
-    draw_roc(clasifier[0], clasifier[1])
-
-
-
-# TODO - IMPLEMENT LEVEL CAP - OR AT LEAST HANDLE IT SOMEHOW
+    file_path = './configGP.ini'
+    if os.path.exists(file_path):
+        print("here")
+        configuration_file = read_config_file(file_path)
+    else:
+        print("No config file detected, creating default config.ini file")
+        make_config()
+        configuration_file = read_config_file(file_path)
+    classifier = run_gp(configuration_file)
+    draw_roc(classifier[0], classifier[1])

@@ -153,7 +153,7 @@ def run(data_set, config_file, show_graph=False, boxplt=False, roc=False):
         x_test = x[2]
         y_test = x[3]
         train_model = run_classifier(x_train, y_train, hidden_layers, x_test, activate=activation)
-        predsTESTING = train_model[1]
+        predsTESTING = train_model
         # print(predsTESTING)
         elapse = timeit.default_timer() - start_time
         times.append(elapse)
@@ -162,9 +162,10 @@ def run(data_set, config_file, show_graph=False, boxplt=False, roc=False):
         if i % 100 == 0:
             sys.stdout.write("iteration: " + str(i) + "\n")
 
-    print("times: ", times)
+    # print("times: ", times)
 
     if show_graph == True and roc == True:
+        # draw the roc curve 
         False_Positive_Rate, True_Positive_Rate, _ = metrics.roc_curve(y_test, predsTESTING)
         df = pd.DataFrame(dict(fpr=False_Positive_Rate, tpr=True_Positive_Rate))
         auc = metrics.auc(False_Positive_Rate, True_Positive_Rate)
@@ -174,6 +175,7 @@ def run(data_set, config_file, show_graph=False, boxplt=False, roc=False):
         g.show()
 
     if show_graph == True and boxplt == True:
+        # draw a box plot 
         plt.boxplot(accuracies)
         plt.figure()
         plt.plot(list(range(len(times))), times, label="Time taken to learn")
@@ -205,4 +207,4 @@ if __name__ == "__main__":
         print("No config file detected, creating default config.ini file")
         make_config()
         configuration_file = read_config_file(file_path)
-    run('./dataset2.txt', configuration_file, show_graph=False)
+    run('./dataset2.txt', configuration_file, show_graph=True, boxplt = False, roc=True)

@@ -11,6 +11,7 @@
 \begin{document}
 	\begin{titlepage}
 		\begin{center}
+		ECM3401: Individual Literature Review and Project\\
 			\line(1,0){300}\\
 			[0.25in]
 			\huge{\bfseries To Create and Compare the Predictive Accuracy of a Genetic Program and an Artificial Neural Network to Predict Corporate Bankruptcy: Final Report}\\
@@ -306,6 +307,8 @@ X2)))-X2)-X1+X4))-X2-X5-X1+X4 = 76\%  accuracy
 \end{align*}
 
 Overall, using my research and following the design specification, the ANN and GP had been successfully developed. To run both models, I chose to use rough parameters to allow both models to learn, and then test the predictive accuracy of each model with these parameters. Once both models were developed, I then scaled them, such that they could both accept the full dataset that was to be used for training and testing the predictive accuracies of both models. I was aware that the parameters used were not necessarily the most optimal, and therefore I decided to run a variety of different tests which will be discussed in the following section.
+
+To run the GP, please look at Appendix C which shows you how to execute the file using the configuration file. 
 \section{Testing, Results and Comparisons} \label{sec:TRC}
 \subsection{Testing and Results}\label{subsec:TnR}
 I used various methods to test whether the code was performing the way it should, and to see if different techniques affected the training and testing predictive accuracy of both the models. For both classification models, I created a testing plan which was split into two sections for both models. The first section of the plan related to \textit{software testing}, to check if each function was performing as it should. The second section of both plans related to testing whether or not the models made were classifying the data correctly and to change parameters to see if this affected the training and testing predictive accuracies. Within this section, I discuss some of the methods I used to perform different types of testing such as \textit{\textit{black box}, unit, and performance testing}. I then mention some of the completed experiments through parameter tuning, to get optimal predictive accuracies. 
@@ -362,7 +365,7 @@ Similar to the ANN, it is very common to train the GP using one dataset and test
 
 My first method of testing was to train the GP using the full given data set. After this was done, since another dataset was unavailable, I used the same dataset to test the predictive accuracy of the genetic program optimal equations. Even thought it was thought that this would, in theory, achieve 100\% predictive accuracy, the GP produced between 70-75\% accuracy on average. The reason for this is every time a new population is generated, a different area of the search space is explored, which means the functions, may have the same training and testing data, it may not produce 100\% testing predictive accuracy due to its not deterministic nature. 
 
-To make the ANN and GP more comparable, I also attempted to use the train test split function to split the data into two sets, using 80\% of the data to train the model and 20\% to test the model over 1000 iterations.  As expected, from looking at the ROC curve for the GP and ANN in Appendix D, which both used TTS, all the graphs show different outcomes, as the accuracy has entirely depended on which data was used to train each model. 
+To make the ANN and GP more comparable, I also attempted to use the TTS function to split the data into two sets, using 80\% of the data to train the model and 20\% to test the model over 1000 iterations.  As expected, from looking at the ROC curve for the GP and ANN in Appendix D, which both used TTS, all the graphs show different outcomes, as the accuracy has entirely depended on which data was used to train each model. 
 Although K-Fold Cross Validation can be used for the GP by being able to produce the average predictive accuracy of the model, the aim of the project was to find an optimal function that could be used to predict CB. However it is not possible to average out multiple expressions which would produce a solution that is equivalent to the predictive classification accuracy produced by KFCV. Although, if the user only wanted to determine a general predictive accuracy, then this was possible, without the explicit representation of an optimal function. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Genetic Program Experiments}\label{subsubsec:GPE}
@@ -384,12 +387,9 @@ The next test performed was using different selection methods. As the selection 
 \caption{Line graph showing different parent selection methods and their learning fitness values. } 
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Another parameter that could be tuned was the maximum number of iterations allowed before the model terminates. This involved using a variety of different maximum iteration values, to see if this made any difference to the predictive accuracies. In theory, if there were too few iterations, then the model would not be able to learn sufficiently. If there were too many iterations, then there is a possibility that learning would eventually stop, and that this would be very computationally expensive to try to find an optimal solution to the problem. Alternatively, learning would continue until an optimal function was found, however this posed the risk of the model overfitting the data. When using 10 and 100 as the parameter values, the graph (see Appendix C) clearly indicated that learning was still occurring. When the maximum iterations were 1000 or 2000, the model showed signs of convergence, and eventually stopped learning as quickly. While it may look like the model was no longer learning at all, until a termination criterion is met, the model would continue to search the search space for an optimal solution.
+Another parameter that could be tuned was the maximum number of iterations allowed before the model terminates. This involved using a variety of different maximum iteration values, to see if this made any difference to the predictive accuracies. In theory, if there were too few iterations, then the model would not be able to learn sufficiently. If there were too many iterations, then there is a possibility that learning would eventually stop, and that this would be very computationally expensive to try to find an optimal solution to the problem. Alternatively, learning would continue until an optimal function was found, however this posed the risk of the model overfitting the data. When using 10 and 100 as the parameter values, the GP appeared to still be learning (see Appendix E) . When the maximum iterations were 1000 or 2000, the model showed signs of convergence, and eventually stopped learning as quickly. While it may look like the model was no longer learning at all, until a termination criterion is met, the model would continue to search the search space for an optimal solution.
 
-Through the use of software testing, using methods such as white and \textit{black box} testing, both the models made were successful and were able to predict whether a company would be likely to go bankrupt or not within one year. By using software testing, it enabled me to ensure that the models made were learning correctly. Through experimentation, I was able to determine more optimised parameters for both models which could be used to compare the models against each other. To make both models more user friendly, the configuration files were used to alter the parameters, which was a form of user acceptance testing. This means that, if a user wants to use both models, altering any source code would be unnecessary. Due to space limitations, I have mentioned some of the tests that were performed to tune the parameters of the model. To view the rest of the tests that were completed, please refer to Appendix A.\\
-\\
-To run the GP, please refer to Appendix C. Examples show this in verbose mode which prints out the outputs for each iteration. To turn this off, please change the flag set in the boolean parameter in the source code. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Through the use of software testing, using methods such as white and \textit{black box} testing, both the models made were successful and were able to predict whether a company would be likely to go bankrupt or not within one year. By using software testing, it enabled me to ensure that the models made were learning correctly. Through experimentation, I was able to determine more optimised parameters for both models which could be used to compare the models against each other. To make both models more user friendly, the configuration files were used to alter the parameters, which was a form of user acceptance testing. This means that, if a user wants to use both models, altering any source code would be unnecessary. Due to space limitations, I have only been able to mentioned some of the tests that were performed to tune the parameters of the model. \\
 \subsection{ANN and GP Comparisons}\label{subsec:ANNGPC}
 As part of the project, another aspect was to compare the developed two models to determine how well the GP performed against the ANN, in terms of time to find a solution, predictive accuracy and readability. \\
 
@@ -422,8 +422,6 @@ Not only that, but to help improve the results further, the use of K-Fold cross 
 When developing  the GP, only the 4 basic mathematical operators were used. These may not necessarily be the wrong operators to have used, but more operators such as \textit{sin, cos} and \textit{log} could have also been used. Through using these, it is possible that an optimal solution produced, whilst more complex, would also give a higher predictive accuracy on the hold-out dataset.  Secondly, as a maximum depth limitation was not strictly enforced, after 1000 iterations, the GP started to become computationally expensive to keep running, even though learning had not finished. This meant that much larger solutions were constantly being checked, rather than smaller solutions which may have potentially had a better fitness. This effect of the trees getting very large very quickly is called \textit{bloat}. If there was a depth cap, then extremely large trees produced could have been removed to ensure that the performance was not affected. Finally, a possible reason that the GP did not perform as well as it could have is that since manual testing was performed to compute the best parameters, they may not have truly been the optimal parameters for the GP. This is something to consider as this was completed successfully for the ANN. \\
 
 As these models are relatively dissimilar, the number of comparisons that could be made between the two models had to be relatively generalised to the two models as a whole, rather than being able to compare very specific parts of each model. By comparing the performance of the models, it was clear that the ANN stayed consistent in the time it took to learn due to its fixed size, unlike the GP which slowed down exponentially. The ANN also gave a better predictive output as the benchmark, using the official data set, augmented through parameter optimisation. However, the predictive accuracy was not significantly greater than the GP, and through the use of methods such as KFCV, the predictive accuracy could possibly surpass the ANN. 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Future Work}\label{sec:FWC}
 Throughout this project, I have learned many new concepts, ways of thinking, and how to use machine learning to approach the problem of binary classification to predict CB. There were parts of the project that were achieved very successfully and parts that may be improved upon for future work.  Due to time restrictions, there were several other features that each model could have used, which could have improved the development of each model.
 
@@ -457,9 +455,9 @@ Due to the variety of parameters that could be applied to the \textit{MLPClassif
 As I built the GP without the aid of any libraries, the majority of the programming aspect was completed here. Overall, by using the design specification as a template model, I was able to successfully develop the GP which produced an optimal expression to predict CB. Throughout this stage, I did encounter problems which eventually were handled. For example, although converting infix notation to prefix notation by hand was straightforward, applying this into a function was very challenging, and I found myself wasting too much time trying to make it work. Eventually I was able to find tutorials on how to convert infix to prefix notation, which I was then able to follow, and adapt to fit the needs of the GP model. By the end of the development phase, all of the issues that needed to be fixed, were completed, and the model was able to learn on the training set and produce an optimal function. As the two example functions produced show, the X1 KPI - \textit{working capital / Total Assets} had been filtered out of \textit{optFunc1}, which proved that this variable had no effect on the predictive accuracy of the model, and was not needed when random constants were used. However all the KPIs were required when random constant variables were not included. This met the project specification by showing which KPIs were crucial in all environments and which ones were not.\\
 
 Looking back at the testing aspect of the models developed, I feel that individually each model was tested well, to establish any errors during the development which were not caught, which is why unit testing proved to be very useful. These flaws allowed me to go back through the code to fix any outstanding errors that may have occurred. Due to time restrictions, I was able to handle certain errors and fix them entirely, however for others, this was not always  possible. For example, if the GP initial maximum depth exceeds a certain limit, the model indicates that the depth has exceeded the maximum depth limit, and exits the model, indicating that the user should make the initial depth smaller. Another error that could have been avoided was the conversion of prefix to infix notation. Usually this worked, however very occasionally, the child would be formed incorrectly. In turn this caused the model to crash. Therefore to handle this error, the broken child was removed and replaced with a new expression, to allow the program to keep running. Finally to meet more of the specification, I created a configuration file for the user to be able to put in their inputs, so that a user can use their own configurations to let the model learn without having to manually change any of the source code. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\\\\
+To conclude, this project has been successful in all aspects. I was able to use the research I found to create a project specification. This included making two detailed plans for the models that were to be made. Using these design specifications, I was then able to make the models using the Python programming language, using \textit{Sklearn} as to design the ANN to be an optimised model to compare the GP against. Using the models that were made, I was then able to test the models to ensure they worked through methods such as unit testing, performance testing, and classification accuracy, and came to the conclusion that both models were fit for this particular problem. If there was more time, certain aspects of the project would have been changed, to make this project more successful, however with the time that I was given, I feel that the models that were made produced results that were comparable to techniques that are currently being used in industry to predict the likelihood of corporate bankruptcy. \\
+***Note to reader. To execute the ANN and GP model, please refer to Appendix B and C respectively. 
 \cleardoublepage
 \bibliographystyle{agsm}
 \bibliography{/Users/carlsaptarshi/Desktop/gp/gp/references/refs.bib}
@@ -489,6 +487,7 @@ Overall, as these ratios show, they all play a crucial role in being able to pre
 
 \newpage
 \section{Executing the ANN using a Configuration File}
+
 \textbf{CONFIG FILE ANN}\\
 How to use:\\
 Please enter the configuration details of how you would like to construct the artificial neural network the structure is as follows:\\
@@ -512,7 +511,13 @@ activation = logistic \\
 max\textunderscore iterations = 1000 \\
 \\
 save as config.ini within this directory and then execute model.
-
+\\
+\\
+To execute the ANN, please use the ANN directory.\\
+This contains \textit{cross\textunderscore validation\textunderscore ANN.py} to run KFCV on the ANN. This file can be built and run immediately. 
+\textit{crossValRoc\textunderscore ANN} is used to make the ROC curves based on the optimal nodes found in \\
+\textit{cross\textunderscore validation\textunderscore ANN.py}. \\
+\textit{Train\textunderscore test\textunderscore split\textunderscore ANN.py} is used with configuration file to run TTS on the data set based on the users parameters. 
 
 \newpage
 \section{Examples of the GP in Verbose Mode}
@@ -530,6 +535,45 @@ parent prefix:  [([`-', `*', `X2', `X2', `-', `*', `X4', `X4', `+', `X5', `/', `
 \includegraphics[scale = .60]{2}
 \includegraphics[scale = .60]{3}
 \end{figure}
+
+\newpage
+\section{ROC curve to test GP and ANN}
+\begin{figure}[h]
+\centering
+Genetic Program using TTS with 80\% training data and 20\% testing data:
+\includegraphics[scale = .40]{gp1}
+\includegraphics[scale = .40]{gp2}
+\end{figure}
+\begin{figure}[h]
+\centering
+ANN using TTS with 80\% training data and 20\% testing data:
+\includegraphics[scale = .30]{ann1}
+\includegraphics[scale = .25]{ann2}
+\end{figure}
+
+
+\newpage
+\section{ROC curve to test GP and ANN}
+\begin{figure}[h]
+\centering
+Genetic Program with 50 and 100 iterations of running the model:
+\includegraphics[scale = .35]{learn1}
+\includegraphics[scale = .35]{learn2}
+After 50 iterations it can be seen that learning has only just commenced and the model is beginning to learn quickly. As can be seen, more than 50 iterations are needed for the model to learn sufficiently. After running the model for 100 iterations, the model is still learning as well, as no optimal solution has been found yet. That being said, learning began in the very early stages of this model. After 100 epochs, changes are still expected and the performance of this will not be effected as was seen in Section 5.2 Figure 7, the computation time only starts to increase after approximately 200 epochs.
+\end{figure}
+\begin{figure}
+\centering
+Genetic Program with 1000 and 2000 iterations of running the model:
+\includegraphics[scale = .4]{2k}
+\includegraphics[scale = .4]{3k}
+Approaching 1000 runs, the model is still learning as the fitness has reduced from 127 to 121. However in 1000 runs, the accuracy of the model has only increased by 1\%, whereas the computation time to achieve this extra 1\% has been significantly more. As expected when running 2000 times, the computation time started to increase too much, and the rate of learning had plateaued at approximately 450 epochs of this model. 
+\end{figure}
+
+
+
+
+
+
 \end{document}
 
 

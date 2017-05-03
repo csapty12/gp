@@ -46,3 +46,5 @@
 \contentsline {section}{\numberline {A}Use of Key Performance Indicators}{32}
 \contentsline {section}{\numberline {B}Executing the ANN using a Configuration File}{33}
 \contentsline {section}{\numberline {C}Examples of the GP in Verbose Mode}{34}
+\contentsline {section}{\numberline {D}ROC curve to test GP and ANN}{35}
+\contentsline {section}{\numberline {E}ROC curve to test GP and ANN}{36}

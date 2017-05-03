@@ -74,27 +74,18 @@ def run(data_set):
 import matplotlib.pyplot as plt
 
 figure()
-# figsize(8,8)
 plt.plot(range(1, 51), test1, "b", label="Cross Validation Accuracy 1")
-# plt.plot(range(1,51),test2,"g", label ="Cross Validation Accuracy 2")
-# plt.plot(range(1,51),test3,"r", label ="Cross Validation Accuracy 3")
 plt.xlabel("number of possible nodes in the network")
 plt.ylabel("cross val accuracy")
 legend(loc="best")
 
 figure()
-# figsize(8,8)
-# plt.plot(range(1,51),test1,"b", label ="Cross Validation Accuracy 1")
 plt.plot(range(1, 51), test2, "g", label="Cross Validation Accuracy 2")
-# plt.plot(range(1,51),test3,"r", label ="Cross Validation Accuracy 3")
 plt.xlabel("number of possible nodes in the network")
 plt.ylabel("cross val accuracy")
 legend(loc="best")
 
 figure()
-# figsize(8,8)
-# plt.plot(range(1,51),test1,"b", label ="Cross Validation Accuracy 1")
-# plt.plot(range(1,51),test2,"g", label ="Cross Validation Accuracy 2")
 plt.plot(range(1, 51), test3, "r", label="Cross Validation Accuracy 3")
 plt.xlabel("number of possible nodes in the network")
 plt.ylabel("cross val accuracy")

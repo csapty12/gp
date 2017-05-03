@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 
 def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iteration=2,
              selection_type="tournament", tournament_size=50, cross_over_rate=0.9, mutation_rate=0.1, thresh=0.5,
-             number_hits = 130):
+             number_hits=130, training_size=0.8, testing_size=0.2):
     """
     Function to train the genetic program using the training dataset, based on user defined parameters.
     :param data_set: data set to be read into the program
@@ -26,6 +26,8 @@ def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iter
     :param mutation_rate: frequency of mutation expressed as a value between [0,1]
     :param thresh: testing threshold value to print out the parameters being used.
     :param number_hits: smallest error allowed to stop model from learning any further.
+    :param training_size: percentage of data to train model on -> represented as decimal number between 0 and 1
+    :param testing_size: percentage of data to test model on -> represented as decimal number between 0 and 1
     :return: optimal expression found through training.
     """
     import sys
@@ -42,7 +44,7 @@ def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iter
     data = read[0]
     labels = read[1]
 
-    tsp = d.train_test_split_ds(data, labels)
+    tsp = d.train_test_split_ds(data, labels, training_size, testing_size)
     x_train = tsp[0]
     y_train = tsp[1]
     x_test = tsp[2]
@@ -59,6 +61,8 @@ def train_gp(data_set='dataset2.txt', gen_depth=3, population_size=500, max_iter
     sys.stdout.write("Mutation Rate : {} \n".format(mutation_rate))
     sys.stdout.write("Testing Threshold : {} \n".format(thresh))
     sys.stdout.write("Number of Hits : {} \n".format(number_hits))
+    sys.stdout.write("Training size: {} % \n".format(training_size*100))
+    sys.stdout.write("Testing size: {} % \n".format(testing_size*100))
     sys.stdout.write("################################ \n")
 
     current_population = GenMember()

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.11)  3 MAY 2017 06:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.11)  3 MAY 2017 07:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -646,54 +646,74 @@ File: 3.png Graphic file (type png)
  <use 3.png>
 Package pdftex.def Info: 3.png used on input line 536.
 (pdftex.def)             Requested size: 245.11765pt x 326.42201pt.
- [34 <./1.png> <./2.png> <./3.png>] <gp1.png, id=165, 556.0775pt x 444.66125pt>
+ [34 <./1.png> <./2.png> <./3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 540--580
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 540--580
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 540--580
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 540--580
+
+ []
+
+[35] <gp1.png, id=168, 556.0775pt x 444.66125pt>
 File: gp1.png Graphic file (type png)
  <use gp1.png>
-Package pdftex.def Info: gp1.png used on input line 544.
+Package pdftex.def Info: gp1.png used on input line 586.
 (pdftex.def)             Requested size: 222.42705pt x 177.86134pt.
 
-<gp2.png, id=166, 545.03625pt x 440.64626pt>
+<gp2.png, id=169, 545.03625pt x 440.64626pt>
 File: gp2.png Graphic file (type png)
  <use gp2.png>
-Package pdftex.def Info: gp2.png used on input line 545.
+Package pdftex.def Info: gp2.png used on input line 587.
 (pdftex.def)             Requested size: 218.01064pt x 176.25537pt.
 
-<ann1.png, id=167, 810.02625pt x 578.16pt>
+<ann1.png, id=170, 810.02625pt x 578.16pt>
 File: ann1.png Graphic file (type png)
  <use ann1.png>
-Package pdftex.def Info: ann1.png used on input line 550.
+Package pdftex.def Info: ann1.png used on input line 592.
 (pdftex.def)             Requested size: 243.00975pt x 173.44933pt.
 
-<ann2.png, id=168, 816.04875pt x 748.7975pt>
+<ann2.png, id=171, 816.04875pt x 748.7975pt>
 File: ann2.png Graphic file (type png)
  <use ann2.png>
-Package pdftex.def Info: ann2.png used on input line 551.
+Package pdftex.def Info: ann2.png used on input line 593.
 (pdftex.def)             Requested size: 204.01169pt x 187.19891pt.
- [35 <./gp1.png> <./gp2.png> <./ann1.png> <./ann2.png>]
-<learn1.png, id=176, 576.1525pt x 436.63126pt>
+ [36 <./gp1.png> <./gp2.png> <./ann1.png> <./ann2.png>]
+<learn1.png, id=179, 576.1525pt x 436.63126pt>
 File: learn1.png Graphic file (type png)
  <use learn1.png>
-Package pdftex.def Info: learn1.png used on input line 560.
+Package pdftex.def Info: learn1.png used on input line 601.
 (pdftex.def)             Requested size: 201.65639pt x 152.82323pt.
 
-<learn2.png, id=177, 568.1225pt x 432.61626pt>
+<learn2.png, id=180, 568.1225pt x 432.61626pt>
 File: learn2.png Graphic file (type png)
  <use learn2.png>
-Package pdftex.def Info: learn2.png used on input line 561.
+Package pdftex.def Info: learn2.png used on input line 602.
 (pdftex.def)             Requested size: 198.84584pt x 151.41795pt.
 
-<2k.png, id=178, 574.145pt x 433.62pt>
+<2k.png, id=181, 574.145pt x 433.62pt>
 File: 2k.png Graphic file (type png)
  <use 2k.png>
-Package pdftex.def Info: 2k.png used on input line 567.
+Package pdftex.def Info: 2k.png used on input line 608.
 (pdftex.def)             Requested size: 229.65393pt x 173.44492pt.
 
-<3k.png, id=179, 560.0925pt x 430.60875pt>
+<3k.png, id=182, 560.0925pt x 430.60875pt>
 File: 3k.png Graphic file (type png)
  <use 3k.png>
-Package pdftex.def Info: 3k.png used on input line 568.
+Package pdftex.def Info: 3k.png used on input line 609.
 (pdftex.def)             Requested size: 224.03302pt x 172.24043pt.
- [36 <./learn1.png> <./learn2.png>] [37 <./2k.png> <./3k.png>] (./FinalReport.a
+ [37 <./learn1.png> <./learn2.png>] [38 <./2k.png> <./3k.png>] (./FinalReport.a
 ux) ) 
 Here is how much of TeX's memory you used:
  4805 strings out of 493014
@@ -719,10 +739,10 @@ l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
 /texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/te
 xlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on FinalReport.pdf (41 pages, 1436583 bytes).
+Output written on FinalReport.pdf (42 pages, 1439287 bytes).
 PDF statistics:
- 242 PDF objects out of 1000 (max. 8388607)
- 140 compressed objects within 2 object streams
+ 245 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

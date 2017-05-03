@@ -27,8 +27,8 @@ class Data(object):
         data_cfd = cfd[:, 0:-1]
         return data_cfd, class_labels_cfd
 
-    def train_test_split_ds(self, data, label):
+    def train_test_split_ds(self, data, label, training_size =0.8, testing_size=0.2):
         x = data
         y = label
-        x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, test_size=0.2)
+        x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=training_size, test_size=testing_size)
         return x_train, y_train, x_test, y_test

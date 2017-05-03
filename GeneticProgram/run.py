@@ -29,6 +29,8 @@ def make_config():
         'classifier_threshold': '0.5',
         'num_hits_thresh': '130',
         'debug_mode': 'False',
+        'train_size': '0.8',
+        'test_size': '0.2'
 
     }
     with open('configGP.ini', 'w') as configfile:
@@ -56,6 +58,8 @@ def read_config_file(file):
     classifier_threshold = config['DEFAULT_GP']["classifier_threshold"]
     num_hit_threshold = config['DEFAULT_GP']["num_hits_thresh"]
     debug_mode = config['DEFAULT_GP']["debug_mode"]
+    train_size = config['DEFAULT_GP']["train_size"]
+    test_size = config['DEFAULT_GP']["test_size"]
 
     params.append(data_set)
     params.append(generation_depth)
@@ -68,7 +72,9 @@ def read_config_file(file):
     params.append(classifier_threshold)
     params.append(debug_mode)
     params.append(num_hit_threshold)
-    print("paramsssss")
+    params.append(train_size)
+    params.append(test_size)
+    print("parameters from config file being used:")
     print(params)
     return params
 
@@ -85,6 +91,8 @@ def run_gp(config_file):
     thresh = float(config_file[8])
     verbose = config_file[9]
     num_hits = int(config_file[10])
+    train_size = float(config_file[11])
+    test_size = float(config_file[12])
     import math
     accs = list()
     timer = list()
@@ -97,7 +105,9 @@ def run_gp(config_file):
             optimal_expression = train_gp(data_set=data_set, gen_depth=init_depth,
                                           population_size=pop_size, max_iteration=max_iter, selection_type=sel_type,
                                           tournament_size=tourn_size, cross_over_rate=x_over_rate,
-                                          mutation_rate=mut_rate, thresh=thresh, number_hits = num_hits)
+                                          mutation_rate=mut_rate, thresh=thresh, number_hits=num_hits,
+                                          training_size=train_size,
+                                          testing_size=test_size)
         elif verbose == "True":
             optimal_expression = train_gp_verbose(data_set=data_set, gen_depth=init_depth,
                                                   population_size=pop_size, max_iteration=max_iter,
@@ -105,7 +115,8 @@ def run_gp(config_file):
                                                   selection_type=sel_type,
                                                   tournament_size=tourn_size, cross_over_rate=x_over_rate,
                                                   mutation_rate=mut_rate,
-                                                  thresh=thresh, number_hits = num_hits)
+                                                  thresh=thresh, number_hits=num_hits, training_size=train_size,
+                                                  testing_size=test_size)
 
         opt_exp = optimal_expression[0]
         row = optimal_expression[1]

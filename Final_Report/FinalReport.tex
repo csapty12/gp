@@ -537,6 +537,48 @@ parent prefix:  [([`-', `*', `X2', `X2', `-', `*', `X4', `X4', `+', `X5', `/', `
 \end{figure}
 
 \newpage
+\textbf{Executing the GP using Configuration File}\\
+How to use:\\
+Please enter the configuration details of how you would like to construct the GP:\\
+\\
+   :param \textit{cross\textunderscore over\textunderscore rate}: value between 0 and 1, determines the frequency of crossover in the GP\\
+   :param \textit{population\textunderscore size}: The number of members in the population \\
+   :param \textit{data\textunderscore set}:  the dataset to be used \\
+   :param \textit{max\textunderscore iteration}: initial termination criteria if no good solution found within n iterations\\
+   :param \textit{selection\textunderscore type}: initial termination criteria if no good solution found within n iterations\\
+   :param \textit{tournament\textunderscore size}: If using tournament selection, PLEASE ENSURE the tournament size is smaller than the population size.\\
+   :param \textit{mutation\textunderscore rate}: value between 0 and 1, determines the frequency of mutation in the GP\\
+   :param \textit{generation\textunderscore depth}: imax depth of starting population - this will change as the model learns and the expressions become larger.\\
+   :param \textit{classifier\textunderscore threshold}: value to which a company will fall into one class or another.\\
+   :param \textit{debug\textunderscore mode}: print out all the stages of the model, to understand how the process works.\\
+   :param \textit{num\textunderscore hits\textunderscore thresh}: minimum number of errors such that the model can stop learning.\\
+   :param \textit{train\textunderscore size}: percentage of data to train model\\
+   :param \textit{test\textunderscore size}: percentage of data to test model\\
+\\
+Example:\\
+\textit{[DEFAULT\textunderscore GP] }\\
+cross\textunderscore over\textunderscore rate = 0.1\\
+population\textunderscore size = 500\\
+data\textunderscore set = ./dataset2.txt\\
+max\textunderscore iteration = 1000\\
+selection\textunderscore type = tournament\\
+tournament\textunderscore size = 12\\
+mutation\textunderscore rate = 0.9\\
+generation\textunderscore depth = 4\\
+classifier\textunderscore threshold = 0.5\\
+debug\textunderscore mode = True\\
+num\textunderscore hits\textunderscore thresh = 130\\
+train\textunderscore size: 0.8\\
+test\textunderscore size: 0.2\\
+\\
+save as configGP.ini within this directory and then execute model.
+\\
+\\
+To execute the GP, please use the GeneticProgram directory.\\
+This contains all the classes required to run this program. To run the main class, in the terminal please use  \$ python3 run.py to run the main file. \\
+If you are using the configGP.ini file, then you may edit the parameters at your own will and this will automatically be updated in the main model. If configGP.ini does not exist, please run model once to generate the configGP.ini file to edit. 
+
+\newpage
 \section{ROC curve to test GP and ANN}
 \begin{figure}[h]
 \centering
@@ -550,7 +592,6 @@ ANN using TTS with 80\% training data and 20\% testing data:
 \includegraphics[scale = .30]{ann1}
 \includegraphics[scale = .25]{ann2}
 \end{figure}
-
 
 \newpage
 \section{ROC curve to test GP and ANN}
